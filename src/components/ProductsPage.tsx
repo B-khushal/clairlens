@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Sparkles, Search, SlidersHorizontal, ArrowRight, X, Check, ShieldCheck, Layers, Eye, CheckCircle2, ChevronRight } from 'lucide-react';
+import { Search, SlidersHorizontal, ArrowRight, X, Check, ShieldCheck, Layers, Eye, CheckCircle2, ChevronRight } from 'lucide-react';
 import Breadcrumbs from './Breadcrumbs';
 import { PRODUCTS_CATALOG_DATA, ProductItem, COATINGS_DATA, LENS_INDICES_DATA, HERO_ASSET } from '../data/assetsData';
 

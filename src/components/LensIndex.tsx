@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { LENS_INDICES_DATA, LENS_INDEX_TECH_ASSET } from '../data/assetsData';
-import { Sliders, Sparkles, ChevronDown } from 'lucide-react';
+import { Sliders, ChevronDown } from 'lucide-react';
 
 interface GlassSliceVisualizerProps {
   activeIndex: typeof LENS_INDICES_DATA[0];
@@ -29,7 +29,6 @@ function GlassSliceVisualizer({ activeIndex, isMobile = false }: GlassSliceVisua
       {/* Header */}
       <div className="flex items-center justify-between mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[10px] uppercase font-mono tracking-widest text-wine-200 shadow-sm">
-          <Sparkles className="w-3.5 h-3.5 text-wine-300" />
           Refractive Thickness Physics
         </div>
         <span className="text-xs font-mono font-bold px-3.5 py-1 rounded-full bg-white text-wine-950 shadow-md">

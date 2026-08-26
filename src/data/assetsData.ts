@@ -224,7 +224,7 @@ export const FEATURES_DATA = [
     title: 'Sub-Micron Surface Polish',
     subtitle: 'Nanometer Precision',
     description: 'Every glass lens surface is polished to within nanometer tolerances, virtually eliminating light scattering and distortion.',
-    icon: 'Sparkles'
+    icon: 'ShieldCheck'
   },
   {
     title: 'Total UV400 Blockade',

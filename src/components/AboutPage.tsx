@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Sparkles, ArrowRight, ShieldCheck, Cpu, Layers, Eye, Award, CheckCircle2, Factory, Microscope } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Cpu, Layers, Eye, Award, CheckCircle2, Factory, Microscope } from 'lucide-react';
 import Breadcrumbs from './Breadcrumbs';
 import { HERO_ASSET, MANUFACTURING_LAB_ASSET, TECHNOLOGY_OPTICS_ASSET, COMPANY_INFO } from '../data/assetsData';
 
@@ -46,7 +46,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
   const techFeatures = [
     { title: 'Precision Manufacturing', desc: 'Sub-micron diamond turning ensures zero wave aberration across the lens margin.', icon: Factory },
     { title: 'Advanced Optical Design', desc: 'Wavefront point-by-point digital surfacing tailored for visual acuity.', icon: Eye },
-    { title: 'Premium Coatings', desc: 'Fluorine hydrophobic and metallic oxide anti-reflective matrices.', icon: Sparkles },
+    { title: 'Premium Coatings', desc: 'Fluorine hydrophobic and metallic oxide anti-reflective matrices.', icon: Layers },
     { title: 'Surface Protection', desc: 'Quartz-composite hard coat providing scratch resistance.', icon: ShieldCheck },
     { title: 'Digital Vision Support', desc: 'Targeted HEV 455nm blue light filtering for screen heavy environments.', icon: Cpu },
     { title: 'High Prescription Support', desc: '1.67 & 1.74 ultra-thin profiles eliminating bug-eye magnification.', icon: Layers },

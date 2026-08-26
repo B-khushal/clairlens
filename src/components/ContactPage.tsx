@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Clock, Send, Sparkles, CheckCircle2, AlertCircle, Loader2, Globe, Building } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle2, AlertCircle, Loader2, Globe, Building } from 'lucide-react';
 import Breadcrumbs from './Breadcrumbs';
 import { COMPANY_INFO } from '../data/assetsData';
 
@@ -168,7 +168,6 @@ export default function ContactPage({ onNavigate, initialData }: ContactPageProp
                       Send an Enquiry
                     </h2>
                   </div>
-                  <Sparkles className="w-6 h-6 text-wine-300" />
                 </div>
 
                 {isSubmitted ? (

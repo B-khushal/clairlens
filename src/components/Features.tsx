@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { FEATURES_DATA } from '../data/assetsData';
-import { Sparkles, ShieldCheck, Droplets, Zap, Eye, Layers } from 'lucide-react';
+import { ShieldCheck, Droplets, Zap, Eye, Layers } from 'lucide-react';
 
 const iconMap: Record<string, React.ReactNode> = {
-  Sparkles: <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />,
+  Sparkles: <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6" />,
   ShieldCheck: <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6" />,
   Droplets: <Droplets className="w-5 h-5 sm:w-6 sm:h-6" />,
   Zap: <Zap className="w-5 h-5 sm:w-6 sm:h-6" />,
@@ -28,7 +28,6 @@ export default function Features() {
             viewport={{ once: true }}
             className="mb-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-wine-800/20 bg-white/80 backdrop-blur-md text-xs font-semibold tracking-widest text-wine-950 uppercase"
           >
-            <Sparkles className="w-3.5 h-3.5 text-wine-700" />
             Standard of Optical Distinction
           </motion.div>
 

@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Factory, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Factory, CheckCircle2 } from 'lucide-react';
 
 const steps = [
   { id: '01', title: 'Monomer Casting', desc: 'Liquid optical polymers are cast into precision glass molds and thermal-cured under strict temperature ramps.' },
@@ -81,7 +81,6 @@ export default function Manufacturing() {
 
               <div className="mt-6 pt-4 border-t border-wine-800/10 group-hover:border-wine-800 flex items-center justify-between text-[11px] font-mono text-wine-800 group-hover:text-wine-200">
                 <span>Phase {step.id} / 06</span>
-                <Sparkles className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </motion.div>
           ))}

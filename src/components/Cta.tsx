@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface CtaProps {
   onNavigate?: (page: string, anchor?: string) => void;
@@ -30,7 +30,6 @@ export default function Cta({ onNavigate }: CtaProps) {
             viewport={{ once: true }}
             className="mb-6 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-wine-500/40 bg-wine-900/80 backdrop-blur-md text-xs font-semibold tracking-widest text-wine-200 uppercase font-mono"
           >
-            <Sparkles className="w-3.5 h-3.5 text-wine-300" />
             Global Optical Manufacturing Partner
           </motion.div>
 

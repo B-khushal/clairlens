@@ -1,10 +1,10 @@
 import { motion, useMotionValue, useSpring, useTransform, useScroll, useReducedMotion } from 'motion/react';
-import React, { useState, useRef } from 'react';
-import { ChevronRight, Sparkles, Target, Layers, ShieldCheck } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { ChevronRight, Target, Layers, ShieldCheck } from 'lucide-react';
 import { HERO_ASSET, LENS_INDICES_DATA } from '../data/assetsData';
 
 interface HeroProps {
-  onNavigate?: (page: string) => void;
+  onNavigate?: (page: string, anchor?: string) => void;
 }
 
 export default function Hero({ onNavigate }: HeroProps) {
@@ -78,7 +78,7 @@ export default function Hero({ onNavigate }: HeroProps) {
       id: 'clarity',
       label: 'CLARITY',
       value: 'HIGH DEF',
-      icon: Sparkles,
+      icon: ShieldCheck,
       pos: 'bottom-2 -right-2 lg:-right-6',
       parallaxFactor: 10
     }
@@ -271,7 +271,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               <div className="absolute bottom-14 sm:bottom-16 left-3 right-3 sm:left-6 sm:right-6 p-2.5 sm:p-3.5 rounded-xl bg-wine-950/85 backdrop-blur-md border border-white/20 text-white flex items-center justify-between pointer-events-auto">
                 <div className="flex items-center gap-2.5">
                   <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-wine-800/80 border border-wine-500/40 flex items-center justify-center">
-                    <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-wine-200" />
+                    <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-wine-200" />
                   </div>
                   <div>
                     <div className="text-[11px] sm:text-xs font-semibold text-white">{activeIndexSpec.material}</div>

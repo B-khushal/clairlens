@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { COATINGS_DATA, CoatingSpec } from '../data/assetsData';
-import { Sparkles, CheckCircle2, ChevronRight } from 'lucide-react';
+import { CheckCircle2, ChevronRight } from 'lucide-react';
 
 interface CoatingsProps {
   onNavigate?: (page: string, anchor?: string) => void;
@@ -25,7 +25,6 @@ export default function Coatings({ onNavigate }: CoatingsProps) {
             viewport={{ once: true }}
             className="mb-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-wine-800/20 bg-white/80 backdrop-blur-md text-xs font-semibold tracking-widest text-wine-950 uppercase"
           >
-            <Sparkles className="w-3.5 h-3.5 text-wine-700" />
             Proprietary Surface Engineering
           </motion.div>
 
