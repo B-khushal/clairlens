@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+@theme {
+  --color-wine-950: #210c13;
+  --color-wine-900: #351720;
+  --color-wine-800: #4b212f;
+  --color-wine-700: #612e3e;
+  --color-wine-600: #7c3c50;
+  --color-wine-500: #994d64;
+  --color-wine-400: #b7687f;
+  --color-wine-300: #d18d9f;
+  --color-wine-200: #e5b7c3;
+  --color-wine-100: #f3dbe1;
+  --color-wine-50: #faf2f4;
+  
+  --color-ivory: #FDFBF7;
+  --color-ivory-dark: #f5f0e6;
+  --color-charcoal: #121212;
+  
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Poppins', 'Inter', sans-serif;
+  --font-display: 'Poppins', 'Cygre', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-roboto: 'Roboto', sans-serif;
+  --font-cygre: 'Cygre', 'Poppins', sans-serif;
+
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1440px;
+  --breakpoint-3xl: 1920px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    background-color: #FDFBF7;
+    color: #121212;
+    overflow-x: hidden;
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Accessible focus states */
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+    outline: 2px solid #612e3e;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer utilities {
+  /* Fluid Typography System */
+  .text-fluid-hero {
+    font-size: clamp(2.4rem, 5vw + 1rem, 5.25rem);
+    line-height: 1.04;
+  }
+
+  .text-fluid-hero-accent {
+    font-size: clamp(1.75rem, 3.5vw + 0.5rem, 3.5rem);
+    line-height: 1.1;
+  }
+
+  .text-fluid-title {
+    font-size: clamp(2rem, 4vw + 0.5rem, 3.75rem);
+    line-height: 1.1;
+  }
+
+  .text-fluid-body {
+    font-size: clamp(0.95rem, 0.8vw + 0.6rem, 1.15rem);
+    line-height: 1.6;
+  }
+
+  /* Reusable Responsive Container System */
+  .container-fluid {
+    width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1rem, 3vw, 3rem);
+    padding-right: clamp(1rem, 3vw, 3rem);
+  }
+
+  /* Glassmorphism System Level 1: Glass Light */
+  .glass-light {
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 
+      0 20px 50px rgba(53, 23, 32, 0.05),
+      0 1px 3px rgba(0, 0, 0, 0.03),
+      inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  }
+
+  /* Glassmorphism System Level 2: Glass Wine */
+  .glass-wine {
+    background: linear-gradient(135deg, rgba(53, 23, 32, 0.88) 0%, rgba(97, 46, 62, 0.94) 100%);
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 
+      0 25px 60px rgba(33, 12, 19, 0.45),
+      inset 0 1px 2px rgba(255, 255, 255, 0.25);
+  }
+
+  /* Glassmorphism System Level 3: Glass Crystal */
+  .glass-crystal {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.18) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 
+      0 8px 32px 0 rgba(97, 46, 62, 0.08),
+      inset 0 0 15px rgba(255, 255, 255, 0.6);
+  }
+
+  /* Color Gradients */
+  .text-gradient-wine {
+    background: linear-gradient(135deg, #351720 0%, #612e3e 50%, #7c3c50 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-gold-wine {
+    background: linear-gradient(135deg, #ffffff 0%, #f3dbe1 60%, #e5b7c3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Hide scrollbar for carousels */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Keyframe animations */
+@keyframes reflectionSweep {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(300%) rotate(45deg);
+  }
+}
+
+/* Reduced motion overrides for mobile and accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
