@@ -39,6 +39,24 @@ export default function App() {
     return () => window.removeEventListener('popstate', handleHash);
   }, []);
 
+  // Dynamic Document Title for SEO & Browser History
+  useEffect(() => {
+    switch (currentPage) {
+      case 'about':
+        document.title = 'About Clairlens | Swiss-Level Precision Engineering';
+        break;
+      case 'products':
+        document.title = 'Lens Range & Products Catalog | Clairlens';
+        break;
+      case 'contact':
+        document.title = 'Contact Us | Clairlens Optical Manufacturing';
+        break;
+      default:
+        document.title = 'Clairlens | Precision Optical Manufacturing';
+        break;
+    }
+  }, [currentPage]);
+
   const handleNavigate = (page: string, anchor?: string, data?: any) => {
     setCurrentPage(page);
     setNavigationData(data || null);

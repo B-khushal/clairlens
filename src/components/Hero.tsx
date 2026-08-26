@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useSpring, useTransform, useScroll, useReducedMotion } from 'motion/react';
-import { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { ChevronRight, Sparkles, Target, Layers, ShieldCheck } from 'lucide-react';
 import { HERO_ASSET, LENS_INDICES_DATA } from '../data/assetsData';
 

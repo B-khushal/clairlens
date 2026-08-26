@@ -28,7 +28,7 @@ export default function Navbar({ currentPage = 'home', onNavigate }: NavbarProps
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const navLinks = [
+  const navLinks: { name: string; page: string; anchor?: string }[] = [
     { name: 'Home', page: 'home' },
     { name: 'About Precision', page: 'about' },
     { name: 'Products & Range', page: 'products' },

@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'motion/react';
 import { FEATURES_DATA } from '../data/assetsData';
 import { Sparkles, ShieldCheck, Droplets, Zap, Eye, Layers } from 'lucide-react';

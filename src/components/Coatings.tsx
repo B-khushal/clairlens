@@ -3,7 +3,11 @@ import { motion, AnimatePresence } from 'motion/react';
 import { COATINGS_DATA, CoatingSpec } from '../data/assetsData';
 import { Sparkles, CheckCircle2, ChevronRight } from 'lucide-react';
 
-export default function Coatings() {
+interface CoatingsProps {
+  onNavigate?: (page: string, anchor?: string) => void;
+}
+
+export default function Coatings({ onNavigate }: CoatingsProps) {
   const [activeCoating, setActiveCoating] = useState<CoatingSpec>(COATINGS_DATA[1]); // Default to Aegean HMC Green
 
   return (

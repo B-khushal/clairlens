@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Sparkles, Search, SlidersHorizontal, ArrowRight, X, Check, ShieldCheck, Layers, Eye, CheckCircle2, ChevronRight } from 'lucide-react';
 import Breadcrumbs from './Breadcrumbs';
@@ -12,6 +12,18 @@ export default function ProductsPage({ onNavigate }: ProductsPageProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('All Ranges');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [activeModalProduct, setActiveModalProduct] = useState<ProductItem | null>(null);
+
+  // Close modal on ESC key press
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setActiveModalProduct(null);
+    };
+    if (activeModalProduct) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [activeModalProduct]);
+
   const [comparisonIndex, setComparisonIndex] = useState(LENS_INDICES_DATA[4]); // Default 1.67
 
   const categories = [

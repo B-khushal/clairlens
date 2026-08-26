@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Clock, Send, Sparkles, CheckCircle2, AlertCircle, Loader2, Globe, Building } from 'lucide-react';
 import Breadcrumbs from './Breadcrumbs';
