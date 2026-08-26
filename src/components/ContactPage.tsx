@@ -76,9 +76,9 @@ export default function ContactPage({ onNavigate, initialData }: ContactPageProp
           <Breadcrumbs items={breadcrumbItems} onNavigate={onNavigate} />
 
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-wine-800/20 bg-white/80 backdrop-blur-md text-xs font-semibold tracking-widest text-wine-950 uppercase mb-6 shadow-sm">
-              <Mail className="w-3.5 h-3.5 text-wine-700" />
-              CONTACT CLAIRLENS
+            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-wine-800/20 bg-white/90 backdrop-blur-md text-xs font-semibold tracking-widest text-wine-950 uppercase mb-6 shadow-sm">
+              <img src="/Business card 29 May 2025_page-0001.jpg" alt="CLAIRLENS" className="h-6 w-auto object-contain" />
+              <span className="text-[10px] font-mono text-wine-800 font-bold border-l border-wine-200 pl-3">A UNIT OF CLAIRVOYANT OPHTHALMICS</span>
             </div>
 
             <h1 className="font-serif text-fluid-hero text-wine-950 font-medium mb-6 leading-tight">

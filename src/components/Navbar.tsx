@@ -56,26 +56,17 @@ export default function Navbar({ currentPage = 'home', onNavigate }: NavbarProps
               : 'bg-white/50 backdrop-blur-md border border-white/60 shadow-md shadow-wine-900/5'
           }`}
         >
-          {/* Logo with Shimmer */}
+          {/* Official Clairlens Logo */}
           <button 
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none text-left" 
+            className="flex items-center group focus:outline-none text-left py-0.5" 
             aria-label="Clairlens Home"
           >
-            <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-wine-800/30 bg-gradient-to-br from-wine-900/10 to-white/60 p-0.5 flex items-center justify-center overflow-hidden shadow-inner">
-              <div className="w-full h-full rounded-full border border-wine-800/60 group-hover:rotate-180 transition-transform duration-700 flex items-center justify-center">
-                <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-wine-800 group-hover:scale-125 transition-transform" />
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-xl sm:text-2xl font-semibold tracking-tight text-wine-950 flex items-center gap-1">
-                Clairlens
-                <span className="w-1.5 h-1.5 rounded-full bg-wine-700" />
-              </span>
-              <span className="text-[8px] sm:text-[9px] uppercase tracking-[0.2em] font-sans font-bold text-wine-800/70 -mt-1 hidden xs:block">
-                Precision Optics
-              </span>
-            </div>
+            <img 
+              src="/Business card 29 May 2025_page-0001.jpg" 
+              alt="CLAIRLENS - A Unit of Clairvoyant Ophthalmics" 
+              className="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            />
           </button>
 
           {/* Desktop Nav Links */}
@@ -137,9 +128,11 @@ export default function Navbar({ currentPage = 'home', onNavigate }: NavbarProps
             className="mt-3 max-w-[1440px] mx-auto lg:hidden rounded-3xl bg-white/95 backdrop-blur-2xl border border-wine-800/20 shadow-2xl p-6 flex flex-col gap-4 pointer-events-auto"
           >
             <div className="flex items-center justify-between pb-3 border-b border-wine-100">
-              <span className="text-xs uppercase font-mono tracking-widest text-wine-800 font-bold">
-                Clairlens Navigation
-              </span>
+              <img 
+                src="/Business card 29 May 2025_page-0001.jpg" 
+                alt="CLAIRLENS" 
+                className="h-8 w-auto object-contain"
+              />
               <button 
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-xs text-wine-600 font-semibold uppercase tracking-wider"

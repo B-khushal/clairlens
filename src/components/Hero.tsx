@@ -127,19 +127,19 @@ export default function Hero({ onNavigate }: HeroProps) {
         {/* Left Column: Headline & Content */}
         <div className="lg:col-span-6 flex flex-col items-start text-left">
           
-          {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-4 sm:mb-6 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-wine-800/20 bg-white/80 backdrop-blur-xl shadow-sm"
+            className="mb-4 sm:mb-6 inline-flex items-center gap-3 px-4 py-2 rounded-full border border-wine-800/20 bg-white/90 backdrop-blur-xl shadow-sm"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-wine-600 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-wine-800"></span>
-            </span>
-            <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.18em] text-wine-950 uppercase font-mono">
-              CLAIRLENS | ADVANCED OPTICAL TECHNOLOGY
+            <img 
+              src="/Business card 29 May 2025_page-0001.jpg" 
+              alt="CLAIRLENS" 
+              className="h-6.5 w-auto object-contain"
+            />
+            <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.16em] text-wine-950 uppercase font-mono border-l border-wine-200 pl-3">
+              A UNIT OF CLAIRVOYANT OPHTHALMICS
             </span>
           </motion.div>
 

@@ -19,13 +19,12 @@ export default function Footer({ onNavigate }: FooterProps) {
           
           {/* Brand Col */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <button onClick={() => handleNav('home')} className="flex items-center gap-3 group mb-4 sm:mb-6 text-left focus:outline-none">
-              <div className="w-8 h-8 rounded-full border border-wine-500/50 flex items-center justify-center overflow-hidden bg-wine-900/60 p-0.5">
-                <div className="w-full h-full rounded-full border border-wine-400 group-hover:rotate-180 transition-transform duration-700 flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-wine-300" />
-                </div>
-              </div>
-              <span className="font-serif text-2xl font-semibold tracking-wide text-white">Clairlens</span>
+            <button onClick={() => handleNav('home')} className="group mb-4 sm:mb-6 text-left focus:outline-none block">
+              <img 
+                src="/Screenshot 2025-05-29 at 8.22.01 PM_page-0001.jpg" 
+                alt="CLAIRLENS - A Unit of Clairvoyant Ophthalmics" 
+                className="h-14 sm:h-16 w-auto object-contain rounded-xl transition-transform duration-300 group-hover:scale-105"
+              />
             </button>
             <p className="text-xs text-wine-200/80 font-light leading-relaxed max-w-xs mb-4 sm:mb-6">
               Luxury optical lens manufacturing built around glass transparency, sub-micron engineering, and deep red-wine optical distinction.
