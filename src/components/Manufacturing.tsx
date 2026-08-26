@@ -1,5 +1,6 @@
+import { useRef } from 'react';
 import { motion } from 'motion/react';
-import { Factory, CheckCircle2 } from 'lucide-react';
+import { Factory, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const steps = [
   { id: '01', title: 'Monomer Casting', desc: 'Liquid optical polymers are cast into precision glass molds and thermal-cured under strict temperature ramps.' },
@@ -11,9 +12,18 @@ const steps = [
 ];
 
 export default function Manufacturing() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const scrollAmount = direction === 'left' ? -340 : 340;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="manufacturing" className="py-20 sm:py-24 lg:py-32 bg-ivory relative overflow-hidden">
-      <div className="container-fluid mb-12 sm:mb-16">
+      <div className="container-fluid mb-8 sm:mb-12">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
           <div>
             <motion.div
@@ -37,21 +47,44 @@ export default function Manufacturing() {
             </motion.h2>
           </div>
 
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-fluid-body text-gray-700 font-light max-w-xl"
-          >
-            A six-phase high-precision manufacturing protocol transforming raw optical polymers into master-grade eyeglass lenses.
-          </motion.p>
+          <div className="flex flex-col sm:flex-row sm:items-end gap-4 lg:gap-6">
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-fluid-body text-gray-700 font-light max-w-md"
+            >
+              A six-phase high-precision manufacturing protocol transforming raw optical polymers into master-grade eyeglass lenses.
+            </motion.p>
+
+            {/* Side Navigation Arrow Buttons */}
+            <div className="flex items-center gap-2.5 shrink-0 self-start sm:self-auto">
+              <button
+                onClick={() => scroll('left')}
+                className="w-11 h-11 rounded-full bg-white border border-wine-800/20 text-wine-950 hover:bg-wine-950 hover:text-white transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg active:scale-95 focus:outline-none"
+                aria-label="Scroll Left"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => scroll('right')}
+                className="w-11 h-11 rounded-full bg-white border border-wine-800/20 text-wine-950 hover:bg-wine-950 hover:text-white transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg active:scale-95 focus:outline-none"
+                aria-label="Scroll Right"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Horizontal Carousel (Tablet/Desktop) & Stack (Mobile) */}
+      {/* Horizontal Carousel (Mobile & Desktop Side Scroll) */}
       <div className="px-4 sm:px-6 lg:pl-[calc((100vw-1440px)/2+3rem)] relative">
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 overflow-x-auto pb-8 sm:pb-12 pt-4 snap-x snap-mandatory hide-scrollbar relative z-10 pr-4 sm:pr-6">
+        <div 
+          ref={scrollRef}
+          className="flex flex-row gap-4 sm:gap-6 overflow-x-auto pb-8 sm:pb-12 pt-4 snap-x snap-mandatory hide-scrollbar relative z-10 pr-4 sm:pr-6 scroll-smooth"
+        >
           {steps.map((step, index) => (
             <motion.div
               key={step.id}
@@ -59,7 +92,7 @@ export default function Manufacturing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.08 }}
-              className="w-full sm:min-w-[320px] sm:max-w-[360px] rounded-3xl p-6 sm:p-8 bg-white/80 backdrop-blur-xl border border-white/90 shadow-xl shadow-wine-950/5 snap-center relative group hover:bg-wine-950 hover:text-white transition-all duration-500 border-wine-800/10 hover:border-wine-500/40 hover:-translate-y-2 flex flex-col justify-between"
+              className="min-w-[285px] sm:min-w-[320px] max-w-[340px] sm:max-w-[360px] shrink-0 rounded-3xl p-6 sm:p-8 bg-white/80 backdrop-blur-xl border border-white/90 shadow-xl shadow-wine-950/5 snap-start sm:snap-center relative group hover:bg-wine-950 hover:text-white transition-all duration-500 border-wine-800/10 hover:border-wine-500/40 hover:-translate-y-2 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
