@@ -9,8 +9,17 @@ interface GlassSliceVisualizerProps {
 }
 
 function GlassSliceVisualizer({ activeIndex, isMobile = false }: GlassSliceVisualizerProps) {
-  // Map thickness percentage to 3D glass disc edge height (1.50 -> 36px, 1.56 -> 28px, 1.60 -> 21px, 1.67 -> 15px, 1.74 -> 10px)
-  const sliceHeight = Math.max(10, Math.round((activeIndex.thickness / 100) * 36));
+  // Dynamic edge height calculation: 1.50 = 48px down to 1.74 = 10px for maximum visual thickness contrast
+  const edgeHeights: Record<string, number> = {
+    '1.50': 48,
+    '1.56': 36,
+    '1.59': 30,
+    '1.60': 24,
+    '1.67': 17,
+    '1.74': 10
+  };
+
+  const sliceHeight = edgeHeights[activeIndex.id] || 24;
 
   return (
     <div className={`rounded-3xl bg-gradient-to-b from-wine-950 via-wine-900 to-wine-950 text-white border border-wine-500/30 shadow-2xl shadow-wine-950/40 relative overflow-hidden ${
@@ -21,9 +30,9 @@ function GlassSliceVisualizer({ activeIndex, isMobile = false }: GlassSliceVisua
       <div className="flex items-center justify-between mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[10px] uppercase font-mono tracking-widest text-wine-200 shadow-sm">
           <Sparkles className="w-3.5 h-3.5 text-wine-300" />
-          Interactive 3D Glass Slice
+          Refractive Thickness Physics
         </div>
-        <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-white text-wine-950 shadow-sm">
+        <span className="text-xs font-mono font-bold px-3.5 py-1 rounded-full bg-white text-wine-950 shadow-md">
           {activeIndex.index} Index
         </span>
       </div>
@@ -31,26 +40,26 @@ function GlassSliceVisualizer({ activeIndex, isMobile = false }: GlassSliceVisua
       <h3 className="font-serif text-xl sm:text-2xl text-white mb-1 relative z-10 font-medium">
         {activeIndex.material}
       </h3>
-      <p className="text-xs text-wine-200/80 mb-6 relative z-10 font-light">
+      <p className="text-xs text-wine-200/80 mb-5 relative z-10 font-light leading-relaxed">
         {activeIndex.description}
       </p>
 
       {/* Selected 3D Glass Disc Display Box */}
-      <div className="relative h-44 sm:h-52 my-4 rounded-2xl bg-gradient-to-b from-wine-900/60 to-wine-950 border border-wine-700/40 flex flex-col items-center justify-center p-6 overflow-hidden">
+      <div className="relative h-48 sm:h-56 my-3 rounded-2xl bg-gradient-to-b from-wine-900/60 to-wine-950 border border-wine-700/40 flex flex-col items-center justify-center p-6 overflow-hidden">
         
-        {/* Background Optical Light Rays */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none">
+        {/* Optical Center Alignment Line */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-25 pointer-events-none">
           <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white to-transparent" />
         </div>
 
         <AnimatePresence mode="wait">
           <motion.div
             key={activeIndex.id}
-            initial={{ opacity: 0, scale: 0.9, y: 10 }}
+            initial={{ opacity: 0, scale: 0.92, y: 12 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: -10 }}
+            exit={{ opacity: 0, scale: 0.92, y: -12 }}
             transition={{ duration: 0.35, ease: 'easeOut' }}
-            className="w-full max-w-[280px] flex flex-col items-center relative z-10"
+            className="w-full max-w-[290px] flex flex-col items-center relative z-10"
           >
             {/* 3D Glass Disc */}
             <div className="relative w-full flex flex-col items-center">
@@ -58,22 +67,22 @@ function GlassSliceVisualizer({ activeIndex, isMobile = false }: GlassSliceVisua
               {/* Top Glass Surface Ellipse */}
               <div 
                 className="w-full rounded-[100%] border-2 border-white/90 bg-gradient-to-b from-white via-sky-100/70 to-white/40 shadow-xl shadow-white/20 relative overflow-hidden transition-all duration-500"
-                style={{ height: '42px' }}
+                style={{ height: '44px' }}
               >
-                {/* Specular Shine Sweep */}
+                {/* Specular Shine Sweeps */}
                 <div className="absolute top-1 left-4 right-4 h-2.5 rounded-[100%] bg-gradient-to-r from-transparent via-white to-transparent opacity-95" />
                 <div className="absolute bottom-1 left-10 right-10 h-1 rounded-[100%] bg-white/60" />
               </div>
 
-              {/* Glass Bevel Side Rim (Height determined by selected Index Thickness!) */}
+              {/* Glass Bevel Side Rim (Edge Height scaled dynamically by Index!) */}
               <div 
                 className="w-[99.4%] -mt-5 border-x-2 border-b-2 border-white/80 bg-gradient-to-b from-white/40 via-sky-200/30 to-wine-900/70 shadow-2xl relative flex items-center justify-center transition-all duration-500"
                 style={{ 
-                  height: `${sliceHeight + 12}px`,
+                  height: `${sliceHeight + 10}px`,
                   borderRadius: '0 0 50% 50% / 0 0 100% 100%' 
                 }}
               >
-                {/* Inner Refraction Line */}
+                {/* Inner Optical Refraction Line */}
                 <div className="w-[85%] h-[1.5px] bg-white/70 -mt-1" />
               </div>
 
@@ -82,12 +91,12 @@ function GlassSliceVisualizer({ activeIndex, isMobile = false }: GlassSliceVisua
 
             </div>
 
-            {/* Edge Thickness Badge Callout */}
-            <div className="mt-4 flex items-center gap-3">
-              <div className="px-3.5 py-1 rounded-full bg-white text-wine-950 text-xs font-mono font-bold shadow-lg">
+            {/* Edge Profile Measurement Callout */}
+            <div className="mt-5 flex items-center gap-3">
+              <div className="px-4 py-1.5 rounded-full bg-white text-wine-950 text-xs font-mono font-bold shadow-xl border border-white">
                 Edge Profile: {activeIndex.edgeThicknessMm}
               </div>
-              <div className="px-3.5 py-1 rounded-full bg-wine-900/90 text-wine-200 text-xs font-mono border border-wine-700/50">
+              <div className="px-3.5 py-1.5 rounded-full bg-wine-900/90 text-wine-200 text-xs font-mono border border-wine-700/60 shadow-md">
                 {activeIndex.weightReduction}
               </div>
             </div>
@@ -96,8 +105,24 @@ function GlassSliceVisualizer({ activeIndex, isMobile = false }: GlassSliceVisua
 
       </div>
 
+      {/* Visual Thickness Spectrum Bar */}
+      <div className="p-3.5 rounded-2xl bg-wine-900/60 border border-wine-700/40 mb-4 relative z-10">
+        <div className="flex items-center justify-between text-[11px] font-mono mb-2">
+          <span className="text-wine-300">Baseline 1.50 (4.2mm)</span>
+          <span className="text-white font-bold">{activeIndex.index} ({activeIndex.edgeThicknessMm})</span>
+        </div>
+        <div className="w-full h-2.5 bg-wine-950 rounded-full overflow-hidden p-0.5 border border-wine-700/50">
+          <motion.div 
+            initial={{ width: '0%' }}
+            animate={{ width: `${activeIndex.thickness}%` }}
+            transition={{ duration: 0.5 }}
+            className="h-full rounded-full bg-gradient-to-r from-wine-400 via-rose-300 to-white shadow-sm"
+          />
+        </div>
+      </div>
+
       {/* Selected Index Metric Specs Grid */}
-      <div className="grid grid-cols-3 gap-2 sm:gap-2.5 pt-4 border-t border-wine-800/60 text-center relative z-10">
+      <div className="grid grid-cols-3 gap-2 sm:gap-2.5 pt-3.5 border-t border-wine-800/60 text-center relative z-10">
         <div className="p-2.5 rounded-xl bg-wine-900/60 border border-wine-700/40">
           <div className="text-[10px] text-wine-300 font-mono uppercase">Abbe Clarity</div>
           <div className="text-xs sm:text-sm font-semibold font-mono text-white mt-0.5">{activeIndex.abbeyValue}</div>
