@@ -97,10 +97,7 @@ export default function Navbar({ currentPage = 'home', onNavigate }: NavbarProps
               className="relative group px-6 py-2.5 rounded-full overflow-hidden text-xs uppercase tracking-widest font-semibold text-white bg-wine-900 shadow-md shadow-wine-900/25 transition-all duration-300 hover:shadow-lg hover:shadow-wine-900/40 hover:-translate-y-0.5"
             >
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-wine-950 via-wine-800 to-wine-900 group-hover:opacity-90 transition-opacity" />
-              <span className="relative z-10 flex items-center gap-2">
-                <span>Contact Us</span>
-                <Sparkles className="w-3.5 h-3.5 text-wine-200" />
-              </span>
+              <span className="relative z-10">Contact Us</span>
             </button>
           </div>
 
@@ -156,10 +153,9 @@ export default function Navbar({ currentPage = 'home', onNavigate }: NavbarProps
 
             <button
               onClick={() => handleNavClick('contact')}
-              className="mt-4 text-center text-xs uppercase tracking-widest font-semibold py-4 bg-wine-900 text-white rounded-2xl shadow-lg shadow-wine-900/30 flex items-center justify-center gap-2 min-h-[48px]"
+              className="mt-4 text-center text-xs uppercase tracking-widest font-semibold py-4 bg-wine-900 text-white rounded-2xl shadow-lg shadow-wine-900/30 flex items-center justify-center min-h-[48px]"
             >
               <span>Contact Us</span>
-              <Sparkles className="w-4 h-4 text-wine-200" />
             </button>
           </motion.div>
         )}
