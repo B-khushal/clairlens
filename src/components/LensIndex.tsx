@@ -5,85 +5,147 @@ import { Sliders, Sparkles, ChevronDown } from 'lucide-react';
 
 interface GlassSliceVisualizerProps {
   activeIndex: typeof LENS_INDICES_DATA[0];
+  onSelectIndex?: (index: typeof LENS_INDICES_DATA[0]) => void;
   isMobile?: boolean;
 }
 
-function GlassSliceVisualizer({ activeIndex, isMobile = false }: GlassSliceVisualizerProps) {
+function GlassSliceVisualizer({ activeIndex, onSelectIndex, isMobile = false }: GlassSliceVisualizerProps) {
+  // Subset of indices to display in 3D vertical comparison stack matching reference image
+  const displayIndices = [
+    LENS_INDICES_DATA[1], // 1.56
+    LENS_INDICES_DATA[3], // 1.60
+    LENS_INDICES_DATA[4], // 1.67
+    LENS_INDICES_DATA[5], // 1.74
+  ];
+
   return (
-    <div className={`rounded-2xl bg-wine-950 text-white border border-wine-500/30 shadow-2xl shadow-wine-950/40 relative overflow-hidden ${
+    <div className={`rounded-3xl bg-gradient-to-b from-wine-950 via-wine-900 to-wine-950 text-white border border-wine-500/30 shadow-2xl shadow-wine-950/40 relative overflow-hidden ${
       isMobile ? 'p-4 sm:p-6 mt-3 border-t border-wine-500/40' : 'p-6 sm:p-8'
     }`}>
       
-      <div className="flex items-center justify-between mb-3 relative z-10">
-        <div className="text-xs uppercase tracking-widest text-wine-300 font-semibold flex items-center gap-2">
+      {/* Header */}
+      <div className="text-center mb-6 relative z-10">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-[10px] uppercase font-mono tracking-widest text-wine-200 mb-2 shadow-sm">
           <Sparkles className="w-3.5 h-3.5 text-wine-300" />
-          Interactive Glass Slice
+          Lens Index Physics Explained
         </div>
-        <span className="text-xs font-mono font-semibold px-3 py-1 rounded-full bg-wine-800 text-wine-100 border border-wine-500/40">
-          {activeIndex.index} Index
-        </span>
+        <h3 className="font-serif text-2xl sm:text-3xl text-white font-medium">
+          3D Glass Slice Profile
+        </h3>
+        <p className="text-xs text-wine-200/80 mt-1 font-light max-w-xs mx-auto">
+          Visualizing edge thickness & refractive physics across indices
+        </p>
       </div>
 
-      <h3 className="font-serif text-xl sm:text-2xl text-white mb-1.5 relative z-10">
-        {activeIndex.material}
-      </h3>
-      <p className="text-xs text-wine-200/80 mb-5 relative z-10 font-light">
-        {activeIndex.description}
-      </p>
+      {/* 3D Stack Comparison Area */}
+      <div className="relative py-5 px-3 bg-wine-900/40 rounded-2xl border border-wine-700/30 mb-6 flex flex-col items-center gap-6 sm:gap-7">
+        {displayIndices.map((item) => {
+          const isSelected = item.id === activeIndex.id;
+          
+          // Map thickness percentage to 3D glass disc edge height (1.56 -> 28px, 1.60 -> 21px, 1.67 -> 15px, 1.74 -> 10px)
+          const sliceHeight = Math.max(10, Math.round((item.thickness / 100) * 28));
 
-      {/* Animated Physical Lens Cutaway */}
-      <div className="relative h-36 sm:h-44 my-4 rounded-xl bg-gradient-to-b from-wine-900/60 to-wine-950 border border-wine-700/40 flex items-center justify-center p-4 overflow-hidden">
-        
-        {/* Optical Light Rays */}
-        <div className="absolute inset-0 flex items-center justify-between px-4 opacity-40 pointer-events-none">
-          <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white to-transparent" />
-        </div>
+          return (
+            <motion.div
+              key={item.id}
+              onClick={() => onSelectIndex && onSelectIndex(item)}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className={`cursor-pointer w-full max-w-[260px] flex flex-col items-center group transition-all duration-300 relative ${
+                isSelected ? 'scale-105 z-10' : 'opacity-85 hover:opacity-100'
+              }`}
+            >
+              {/* Active selection ambient glow */}
+              {isSelected && (
+                <div className="absolute -inset-2 rounded-2xl bg-white/10 border border-white/40 blur-xs pointer-events-none" />
+              )}
 
-        <motion.div
-          key={activeIndex.id}
-          initial={{ scaleX: 0.85, opacity: 0 }}
-          animate={{ scaleX: 1, opacity: 1 }}
-          transition={{ duration: 0.4 }}
-          className="relative flex items-center justify-center w-full max-w-[220px]"
-        >
-          <div 
-            className="w-full rounded-[50%] bg-gradient-to-b from-white/90 via-white/30 to-wine-500/20 backdrop-blur-md border border-white/80 shadow-2xl transition-all duration-500 flex items-center justify-center"
-            style={{
-              height: `${(activeIndex.thickness / 100) * 100 + 20}px`,
-              boxShadow: '0 0 30px rgba(255, 255, 255, 0.35)'
-            }}
-          >
-            <div className="text-center font-mono">
-              <span className="text-base font-bold text-wine-950 drop-shadow-sm">
-                {activeIndex.edgeThicknessMm}
-              </span>
-              <div className="text-[9px] uppercase tracking-wider text-wine-900 font-sans font-bold">
-                Profile Depth
+              {/* 3D Glass Lens Disc */}
+              <div className="relative w-full flex flex-col items-center">
+                
+                {/* Top Glass Surface Ellipse */}
+                <div 
+                  className={`w-full rounded-[100%] transition-all duration-500 border border-white/80 relative overflow-hidden ${
+                    isSelected 
+                      ? 'bg-gradient-to-b from-white via-sky-100/70 to-white/40 shadow-lg shadow-white/20' 
+                      : 'bg-gradient-to-b from-white/80 via-sky-100/40 to-white/20'
+                  }`}
+                  style={{ height: '36px' }}
+                >
+                  {/* Top Glass Specular Shine Sweep */}
+                  <div className="absolute top-1 left-4 right-4 h-2 rounded-[100%] bg-gradient-to-r from-transparent via-white to-transparent opacity-90" />
+                  <div className="absolute bottom-1 left-8 right-8 h-1 rounded-[100%] bg-white/50" />
+                </div>
+
+                {/* Glass Bevel Side Rim (Height determined by Index Thickness!) */}
+                <div 
+                  className={`w-[99.2%] -mt-4 transition-all duration-500 border-x border-b border-white/60 relative flex items-center justify-center ${
+                    isSelected 
+                      ? 'bg-gradient-to-b from-white/40 via-sky-200/30 to-wine-900/60 shadow-xl' 
+                      : 'bg-gradient-to-b from-white/20 via-sky-100/15 to-wine-950/70'
+                  }`}
+                  style={{ 
+                    height: `${sliceHeight + 8}px`,
+                    borderRadius: '0 0 50% 50% / 0 0 100% 100%' 
+                  }}
+                >
+                  {/* Inner Refraction Line */}
+                  <div className="w-[85%] h-[1px] bg-white/60 -mt-1" />
+                </div>
+
+                {/* Realistic Ground Shadow under Disc */}
+                <div className="w-[88%] h-3 bg-wine-950/80 rounded-[100%] blur-sm -mt-2.5 pointer-events-none" />
+
               </div>
-            </div>
-          </div>
-        </motion.div>
 
+              {/* Index Number Label & Edge Callout */}
+              <div className="mt-2.5 text-center flex items-center gap-2">
+                <span className={`text-base font-bold font-mono transition-colors ${
+                  isSelected ? 'text-white scale-110' : 'text-wine-200 group-hover:text-white'
+                }`}>
+                  {item.index}
+                </span>
+                <span className={`text-[10px] font-mono px-2.5 py-0.5 rounded-full border transition-colors ${
+                  isSelected 
+                    ? 'bg-white text-wine-950 font-bold border-white shadow-sm' 
+                    : 'bg-wine-900/60 text-wine-300 border-wine-700/40'
+                }`}>
+                  {item.edgeThicknessMm} edge
+                </span>
+              </div>
+
+            </motion.div>
+          );
+        })}
       </div>
 
-      {/* Metric Specs */}
-      <div className="grid grid-cols-3 gap-2 sm:gap-2.5 pt-4 border-t border-wine-800/60 text-center relative z-10">
-        <div className="p-2 sm:p-2.5 rounded-lg bg-wine-900/60 border border-wine-700/40">
-          <div className="text-[10px] text-wine-300 mb-0.5 font-mono uppercase">Abbe Value</div>
-          <div className="text-xs sm:text-sm font-semibold font-mono text-white">{activeIndex.abbeyValue}</div>
+      {/* Selected Index Detailed Metrics */}
+      <div className="p-4 rounded-2xl bg-wine-900/60 border border-wine-700/50 space-y-3 relative z-10">
+        <div className="flex items-center justify-between">
+          <span className="text-xs font-semibold text-white font-serif">{activeIndex.material}</span>
+          <span className="text-[10px] font-mono text-wine-200 bg-wine-800 px-2.5 py-0.5 rounded-full border border-wine-600/40">
+            {activeIndex.weightReduction}
+          </span>
         </div>
-        <div className="p-2 sm:p-2.5 rounded-lg bg-wine-900/60 border border-wine-700/40">
-          <div className="text-[10px] text-wine-300 mb-0.5 font-mono uppercase">Density</div>
-          <div className="text-xs sm:text-sm font-semibold font-mono text-white">{activeIndex.density}</div>
-        </div>
-        <div className="p-2 sm:p-2.5 rounded-lg bg-wine-900/60 border border-wine-700/40">
-          <div className="text-[10px] text-wine-300 mb-0.5 font-mono uppercase">UV Block</div>
-          <div className="text-xs sm:text-sm font-semibold font-mono text-white">{activeIndex.uvProtection}</div>
+
+        <div className="grid grid-cols-3 gap-2 text-center text-xs font-mono pt-2 border-t border-wine-800/60">
+          <div className="p-2 rounded-lg bg-wine-950/60 border border-wine-800/40">
+            <div className="text-[9px] text-wine-300 font-sans uppercase">Abbe Value</div>
+            <div className="font-bold text-white mt-0.5">{activeIndex.abbeyValue}</div>
+          </div>
+          <div className="p-2 rounded-lg bg-wine-950/60 border border-wine-800/40">
+            <div className="text-[9px] text-wine-300 font-sans uppercase">Edge Width</div>
+            <div className="font-bold text-white mt-0.5">{activeIndex.edgeThicknessMm}</div>
+          </div>
+          <div className="p-2 rounded-lg bg-wine-950/60 border border-wine-800/40">
+            <div className="text-[9px] text-wine-300 font-sans uppercase">Power Range</div>
+            <div className="font-bold text-white mt-0.5 text-[10px] truncate">{activeIndex.power}</div>
+          </div>
         </div>
       </div>
 
       {/* Technical Diagram Showcase Thumbnail */}
-      <div className="mt-4 pt-3.5 border-t border-wine-800/60 flex items-center gap-3.5">
+      <div className="mt-4 pt-3.5 border-t border-wine-800/60 flex items-center gap-3.5 relative z-10">
         <img 
           src={LENS_INDEX_TECH_ASSET.src}
           alt={LENS_INDEX_TECH_ASSET.alt}
@@ -259,7 +321,7 @@ export default function LensIndex({ onNavigate }: LensIndexProps) {
                               transition={{ duration: 0.35, ease: 'easeInOut' }}
                               className="overflow-hidden"
                             >
-                              <GlassSliceVisualizer activeIndex={item} isMobile={true} />
+                              <GlassSliceVisualizer activeIndex={item} onSelectIndex={handleItemClick} isMobile={true} />
                             </motion.div>
                           )}
                         </AnimatePresence>
@@ -272,7 +334,7 @@ export default function LensIndex({ onNavigate }: LensIndexProps) {
 
             {/* Right Column: Dynamic Physical Glass Thickness Visualizer (Desktop Only) */}
             <div className="hidden xl:block xl:col-span-5 relative xl:sticky xl:top-28">
-              <GlassSliceVisualizer activeIndex={activeIndex} />
+              <GlassSliceVisualizer activeIndex={activeIndex} onSelectIndex={handleItemClick} />
             </div>
 
           </div>
