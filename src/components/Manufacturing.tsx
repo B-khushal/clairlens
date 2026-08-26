@@ -47,40 +47,39 @@ export default function Manufacturing() {
             </motion.h2>
           </div>
 
-          <div className="flex flex-col sm:flex-row sm:items-end gap-4 lg:gap-6">
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-fluid-body text-gray-700 font-light max-w-md"
-            >
-              A six-phase high-precision manufacturing protocol transforming raw optical polymers into master-grade eyeglass lenses.
-            </motion.p>
-
-            {/* Side Navigation Arrow Buttons */}
-            <div className="flex items-center gap-2.5 shrink-0 self-start sm:self-auto">
-              <button
-                onClick={() => scroll('left')}
-                className="w-11 h-11 rounded-full bg-white border border-wine-800/20 text-wine-950 hover:bg-wine-950 hover:text-white transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg active:scale-95 focus:outline-none"
-                aria-label="Scroll Left"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={() => scroll('right')}
-                className="w-11 h-11 rounded-full bg-white border border-wine-800/20 text-wine-950 hover:bg-wine-950 hover:text-white transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg active:scale-95 focus:outline-none"
-                aria-label="Scroll Right"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-fluid-body text-gray-700 font-light max-w-xl"
+          >
+            A six-phase high-precision manufacturing protocol transforming raw optical polymers into master-grade eyeglass lenses.
+          </motion.p>
         </div>
       </div>
 
-      {/* Horizontal Carousel (Mobile & Desktop Side Scroll) */}
-      <div className="px-4 sm:px-6 lg:pl-[calc((100vw-1440px)/2+3rem)] relative">
+      {/* Horizontal Carousel with Hovering Left and Right Side Buttons */}
+      <div className="relative group/carousel px-4 sm:px-6 lg:pl-[calc((100vw-1440px)/2+3rem)]">
+        
+        {/* Left Side Arrow Button */}
+        <button
+          onClick={() => scroll('left')}
+          className="absolute left-2 sm:left-4 lg:left-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 backdrop-blur-md text-wine-950 shadow-2xl border border-wine-800/20 hover:bg-wine-950 hover:text-white transition-all duration-300 flex items-center justify-center hover:scale-110 active:scale-95 focus:outline-none"
+          aria-label="Scroll Left"
+        >
+          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+        </button>
+
+        {/* Right Side Arrow Button */}
+        <button
+          onClick={() => scroll('right')}
+          className="absolute right-2 sm:right-4 lg:right-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 backdrop-blur-md text-wine-950 shadow-2xl border border-wine-800/20 hover:bg-wine-950 hover:text-white transition-all duration-300 flex items-center justify-center hover:scale-110 active:scale-95 focus:outline-none"
+          aria-label="Scroll Right"
+        >
+          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+        </button>
+
         <div 
           ref={scrollRef}
           className="flex flex-row gap-4 sm:gap-6 overflow-x-auto pb-8 sm:pb-12 pt-4 snap-x snap-mandatory hide-scrollbar relative z-10 pr-4 sm:pr-6 scroll-smooth"
