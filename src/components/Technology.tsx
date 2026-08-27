@@ -28,7 +28,7 @@ export default function Technology() {
             </div>
 
             <h2 className="font-serif text-fluid-title mb-6 leading-tight font-medium">
-              Microscopic Precision. <br/>
+              Microscopic Accuracy. <br/>
               <span className="italic font-light text-wine-200">Macroscopic Clarity.</span>
             </h2>
 

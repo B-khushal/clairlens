@@ -51,8 +51,8 @@ export default function Hero({ onNavigate }: HeroProps) {
   // Technical HUD Modules
   const hudModules = [
     {
-      id: 'precision',
-      label: 'PRECISION',
+      id: 'accuracy',
+      label: 'ACCURACY',
       value: '±0.01mm',
       icon: Target,
       pos: 'top-2 -left-4 lg:-left-10',
@@ -155,7 +155,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             transition={{ duration: 1, delay: 0.1 }}
             className="font-serif text-fluid-hero text-wine-950 font-medium tracking-tight mb-3"
           >
-            Precision <br />
+            Clarity <br />
             You Can See.
           </motion.h1>
 
@@ -176,7 +176,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             transition={{ duration: 1, delay: 0.3 }}
             className="text-fluid-body text-gray-700 max-w-xl mb-8 font-light leading-relaxed"
           >
-            Setting global benchmarks in precision optical lens manufacturing. Combining sub-micron wavefront surfacing with quartz scratch barriers and high-refraction glass architecture.
+            Setting global benchmarks in optical lens manufacturing. Combining sub-micron wavefront surfacing with quartz scratch barriers and high-refraction glass architecture.
           </motion.p>
 
           {/* CTAs */}
@@ -202,7 +202,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               onClick={() => onNavigate ? onNavigate('about') : null}
               className="inline-flex items-center justify-center px-8 py-4 bg-white/80 backdrop-blur-xl text-wine-950 font-medium rounded-full border border-wine-800/20 hover:bg-wine-900/5 hover:border-wine-800/40 transition-all duration-300 shadow-sm text-xs uppercase tracking-[0.16em] font-semibold min-h-[48px]"
             >
-              About Clairlens Precision
+              About Clairlens
             </button>
           </motion.div>
 
@@ -223,7 +223,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             </div>
             <div>
               <div className="font-serif text-xl sm:text-2xl lg:text-3xl text-wine-950 font-semibold">±0.01μ</div>
-              <div className="text-[10px] sm:text-[11px] text-gray-500 font-mono uppercase tracking-wider mt-0.5">Precision</div>
+              <div className="text-[10px] sm:text-[11px] text-gray-500 font-mono uppercase tracking-wider mt-0.5">Accuracy</div>
             </div>
           </motion.div>
 

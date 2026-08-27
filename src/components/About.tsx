@@ -3,8 +3,8 @@ import { Microscope, ShieldCheck, Award } from 'lucide-react';
 import { MANUFACTURING_LAB_ASSET } from '../data/assetsData';
 
 const stats = [
-  { label: 'Polish Precision', value: '< 0.01μ', description: 'Nanometer surface accuracy tolerance' },
-  { label: 'Coating Platforms', value: '4th Gen', description: 'Silica, Aegean, Pacific, Aurora' },
+  { label: 'Polish Accuracy', value: '< 0.01μ', description: 'Nanometer surface accuracy tolerance' },
+  { label: 'Coating Platforms', value: '3 Platforms', description: 'Silica, Aegean, Pacific' },
   { label: 'Quality Checkpoints', value: '18 Points', description: 'Laser wavefront inspection per lens' },
   { label: 'Optical Standards', value: 'ISO 8980', description: 'Global prescription certification' },
 ];
@@ -37,7 +37,7 @@ export default function About({ onNavigate }: AboutProps) {
 
             <h2 className="font-serif text-fluid-title text-wine-950 font-medium mb-6 leading-tight">
               Crafting Vision with <br/>
-              <span className="italic font-light text-gradient-wine">Uncompromising Precision</span>
+              <span className="italic font-light text-gradient-wine">Uncompromising Quality</span>
             </h2>
 
             <div className="space-y-4 sm:space-y-6 text-fluid-body text-gray-700 font-light leading-relaxed mb-8 sm:mb-10">

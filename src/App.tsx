@@ -49,7 +49,7 @@ export default function App() {
   useEffect(() => {
     switch (currentPage) {
       case 'about':
-        document.title = 'About Clairlens | Swiss-Level Precision Engineering';
+        document.title = 'About Clairlens | Swiss-Level Optical Engineering';
         break;
       case 'products':
         document.title = 'Lens Range & Products Catalog | Clairlens';
@@ -58,7 +58,7 @@ export default function App() {
         document.title = 'Contact Us | Clairlens Optical Manufacturing';
         break;
       default:
-        document.title = 'Clairlens | Precision Optical Manufacturing';
+        document.title = 'Clairlens | Advanced Optical Manufacturing';
         break;
     }
   }, [currentPage]);

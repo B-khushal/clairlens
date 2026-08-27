@@ -232,7 +232,7 @@ export default function ContactPage({ onNavigate, initialData }: ContactPageProp
                           type="text"
                           value={formData.company}
                           onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                          placeholder="e.g. Precision Optical AG"
+                          placeholder="e.g. Apex Optical AG"
                           className={`w-full px-4 py-3 rounded-xl bg-wine-900/70 border text-white placeholder-wine-300/40 focus:outline-none focus:border-white transition-colors ${
                             errors.company ? 'border-rose-400' : 'border-wine-700/60'
                           }`}
@@ -396,7 +396,7 @@ export default function ContactPage({ onNavigate, initialData }: ContactPageProp
                   Optical Manufacturing Facility
                 </h3>
                 <p className="text-xs text-gray-600 font-light leading-relaxed">
-                  Located in Balanagar Industrial Estate, Hyderabad, our high-precision facility is open for technical distributor audits and partner cleanroom tours by prior appointment.
+                  Located in Balanagar Industrial Estate, Hyderabad, our advanced optical facility is open for technical distributor audits and partner cleanroom tours by prior appointment.
                 </p>
                 <div className="space-y-2 text-xs font-mono text-wine-950 pt-2">
                   <div className="flex items-center gap-2">

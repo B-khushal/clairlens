@@ -1,10 +1,10 @@
-# Clairlens | Precision Optical Lens Manufacturing
+# Clairlens | Advanced Optical Lens Manufacturing
 
 Official web application for **Clairlens Optical Manufacturing AG** (Zurich, Switzerland).
 
 ## Features
 
-- **Executive Brand Overview**: Executive showcase of Clairlens optical precision, refractive indices, and nano-coating matrices.
+- **Executive Brand Overview**: Executive showcase of Clairlens optical technology, refractive indices, and nano-coating matrices.
 - **Dedicated Subpages**:
   - **About Clairlens**: Brand story, 6-stage ISO 13485 cleanroom manufacturing timeline, and technology matrix.
   - **Products / Lens Range**: Complete catalog with live category filtering, search, Abbe clarity metrics, and interactive spec viewer modal.

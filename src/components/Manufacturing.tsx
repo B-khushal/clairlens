@@ -3,11 +3,11 @@ import { motion } from 'motion/react';
 import { Factory, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const steps = [
-  { id: '01', title: 'Monomer Casting', desc: 'Liquid optical polymers are cast into precision glass molds and thermal-cured under strict temperature ramps.' },
+  { id: '01', title: 'Monomer Casting', desc: 'Liquid optical polymers are cast into optical glass molds and thermal-cured under strict temperature ramps.' },
   { id: '02', title: 'Digital Freeform Surfacing', desc: 'Diamond-tipped generators carve exact prescription geometries with sub-micron accuracy.' },
   { id: '03', title: 'Multi-Stage Polish', desc: 'Soft-pad polishing delivers crystal transparency without distorting optical curve geometry.' },
   { id: '04', title: 'Ultrasonic Bathing', desc: 'Multi-chamber ultrasonic baths strip micro-dust before vacuum coating deposition.' },
-  { id: '05', title: 'Ion-Assisted AR Coating', desc: 'Silica, Aegean, Pacific, and Aurora matrices are vacuum-evaporated onto the lens.' },
+  { id: '05', title: 'Ion-Assisted AR Coating', desc: 'Silica, Aegean, and Pacific matrices are vacuum-evaporated onto the lens.' },
   { id: '06', title: 'Wavefront Inspection', desc: 'Laser interferometry checks power, cylinder, axis, thickness, and AR coating integrity.' }
 ];
 
@@ -54,7 +54,7 @@ export default function Manufacturing() {
             transition={{ delay: 0.2 }}
             className="text-fluid-body text-gray-700 font-light max-w-xl"
           >
-            A six-phase high-precision manufacturing protocol transforming raw optical polymers into master-grade eyeglass lenses.
+            A six-phase high-performance manufacturing protocol transforming raw optical polymers into master-grade eyeglass lenses.
           </motion.p>
         </div>
       </div>

@@ -85,7 +85,7 @@ export default function ProductsPage({ onNavigate }: ProductsPageProps) {
               </h1>
 
               <p className="text-fluid-body text-gray-700 font-light leading-relaxed mb-8 max-w-2xl">
-                Explore precision-engineered optical lens solutions crafted for every prescription requirement, lifestyle demand, and aesthetic framing choice. Built from authentic Japanese Mitsui polymers and high-index organic resins.
+                Explore expertly-engineered optical lens solutions crafted for every prescription requirement, lifestyle demand, and aesthetic framing choice. Built from authentic Japanese Mitsui polymers and high-index organic resins.
               </p>
 
               {/* Quick Spec Pills */}
@@ -445,13 +445,13 @@ export default function ProductsPage({ onNavigate }: ProductsPageProps) {
         <div className="container-fluid relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs uppercase font-mono tracking-widest text-wine-300 font-bold block mb-2">
-              Progressive Precision Engineering
+              Progressive Optical Engineering
             </span>
             <h2 className="font-serif text-fluid-title text-white font-medium mb-4">
               The Clairlens <span className="italic font-light text-gradient-wine">Ultimate Series</span>
             </h2>
             <p className="text-fluid-body text-wine-200/90 font-light leading-relaxed">
-              Precision-crafted progressive lenses designed for distinctive lifestyles, using next-generation German digital freeform technology.
+              Expertly-crafted progressive lenses designed for distinctive lifestyles, using next-generation German digital freeform technology.
             </p>
           </div>
 

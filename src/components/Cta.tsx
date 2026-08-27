@@ -41,7 +41,7 @@ export default function Cta({ onNavigate }: CtaProps) {
             transition={{ duration: 1 }}
             className="font-serif text-3xl sm:text-5xl lg:text-6xl text-white mb-6 leading-[1.08] tracking-tight max-w-4xl mx-auto font-medium"
           >
-            Precision You Can See.<br />
+            Clarity You Can See.<br />
             <span className="italic font-light text-gradient-gold-wine">Craftsmanship You Trust.</span>
           </motion.h2>
 

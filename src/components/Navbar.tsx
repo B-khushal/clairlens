@@ -30,7 +30,7 @@ export default function Navbar({ currentPage = 'home', onNavigate }: NavbarProps
 
   const navLinks: { name: string; page: string; anchor?: string }[] = [
     { name: 'Home', page: 'home' },
-    { name: 'About Precision', page: 'about' },
+    { name: 'About Clairlens', page: 'about' },
     { name: 'Products & Range', page: 'products' },
   ];
 

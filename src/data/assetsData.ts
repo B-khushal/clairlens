@@ -38,8 +38,8 @@ export interface LensIndexSpec {
 
 export const HERO_ASSET = {
   src: '/images/hero_glass_lens.jpg',
-  alt: 'Clairlens Precision Optical Glass Lens floating over deep burgundy environment',
-  title: 'Ultra-Clear Precision Optical Lens',
+  alt: 'Clairlens Optical Glass Lens floating over deep burgundy environment',
+  title: 'Ultra-Clear Optical Lens',
   caption: 'Manufactured with sub-micron diamond polishing and digital freeform surfacing.'
 };
 
@@ -51,7 +51,7 @@ export const LENS_INDEX_TECH_ASSET = {
 
 export const MANUFACTURING_LAB_ASSET = {
   src: '/images/manufacturing_lab.jpg',
-  alt: 'High-precision European optical lens polishing machinery in cleanroom lab',
+  alt: 'European optical lens polishing machinery in cleanroom lab',
   title: 'Automated Cleanroom Manufacturing',
 };
 
@@ -112,23 +112,6 @@ export const COATINGS_DATA: CoatingSpec[] = [
     borderGlow: 'border-blue-500/40',
     badge: 'Digital Shield',
     features: ['Blue HMC Layer', 'Minimises Digital Eye Strain', 'Harmful Blue Light Filter', 'Screen Glare Reduction']
-  },
-  {
-    id: 'aurora',
-    name: 'Aurora Range',
-    label: 'Night Drive Coat',
-    positioning: 'Enhanced Night Driving Experience',
-    description: 'Auroraʼs advanced night drive coating dramatically improves night driving clarity by reducing glare from headlights and reflective surfaces, ensuring safer and more comfortable nighttime journeys.',
-    image: '/images/Screenshot 2026-08-26 163255.png',
-    altText: 'Aurora Range Night Drive lens with deep ruby red coating sheen',
-    color: 'from-wine-900/60 to-wine-950/80',
-    reflection: 'bg-rose-400/80',
-    shadow: 'shadow-wine-900/50',
-    accent: 'bg-wine-500',
-    glowColor: 'rgba(139, 67, 91, 0.5)',
-    borderGlow: 'border-wine-400/50',
-    badge: 'Night Drive Flagship',
-    features: ['Advanced Night Drive Coat', 'Headlight Glare Reduction', 'Reflective Surface Control', 'Safer Nighttime Journeys']
   }
 ];
 
@@ -222,7 +205,7 @@ export const LENS_INDICES_DATA: LensIndexSpec[] = [
 export const FEATURES_DATA = [
   {
     title: 'Sub-Micron Surface Polish',
-    subtitle: 'Nanometer Precision',
+    subtitle: 'Nanometer Accuracy',
     description: 'Every glass lens surface is polished to within nanometer tolerances, virtually eliminating light scattering and distortion.',
     icon: 'ShieldCheck'
   },
@@ -278,7 +261,6 @@ export const COMPANY_INFO = {
     'High power add ₹300/- per pair.',
     'Special Dia add ₹150/- per pair.',
     'All prices are exclusive of GST.',
-    'Aurora (Night Drive Coating) available on Aegean for ₹200/- extra.',
     'Photochromatic products available in Green, Pink, Blue, Ambermatic for ₹200/- extra.'
   ]
 };
@@ -360,7 +342,7 @@ export const ULTIMATE_SERIES_DATA: UltimateSeriesItem[] = [
     tagline: 'Drive Safer. See Sharper. Day or Night.',
     description: 'Whether youʼre navigating sun-soaked highways or dim, rainy streets—Ultimate Drive keeps your focus exactly where it should be: the road. Designed for drivers, sales professionals, and people always on the move, these lenses reduce glare, improve contrast, and make dashboard-to-road transitions effortless.',
     keyFeatures: [
-      'Glare Reduction Technology: The Aurora coating minimises reflections from headlights, streetlights, and wet roads.',
+      'Glare Reduction Technology: Anti-reflective coating minimises reflections from headlights, streetlights, and wet roads.',
       'Enhanced Distance & Near Zones: Optimised for both road visibility and dashboard clarity.',
       'High-Contrast Vision: Boosts object clarity in low-light or dusk/dawn conditions.',
       'Reduced Eye Fatigue: Improves comfort during long drives or night shifts.',
@@ -472,13 +454,13 @@ export const PRODUCTS_CATALOG_DATA: ProductItem[] = [
   },
   {
     id: 'prod-160',
-    name: 'Clairlens 1.60 MR-8 Precision High',
+    name: 'Clairlens 1.60 MR-8 High',
     category: 'Thin',
     index: '1.60',
     material: 'MR-8 Japanese Glass-Polymer',
     powerRange: '+6.00 / -8.00 SPH',
     keyBenefit: '30% lighter with exceptional tensile strength for semi-rimless frames.',
-    coatings: ['Silica Hard Coat', 'Aegean HMC Green', 'Pacific Blue Shield', 'Aurora Night Drive'],
+    coatings: ['Silica Hard Coat', 'Aegean HMC Green', 'Pacific Blue Shield'],
     image: '/images/technology_optics.jpg',
     edgeThickness: '2.8 mm',
     weightReduction: '30% Lighter',
@@ -496,7 +478,7 @@ export const PRODUCTS_CATALOG_DATA: ProductItem[] = [
     material: 'MR-7 High Index Substrate',
     powerRange: '+8.00 / -12.00 SPH',
     keyBenefit: '40% thinner edge profile eliminating visual distortion in strong prescriptions.',
-    coatings: ['Aegean HMC Green', 'Pacific Blue Shield', 'Aurora Night Drive'],
+    coatings: ['Aegean HMC Green', 'Pacific Blue Shield'],
     image: '/images/Screenshot 2026-08-26 163255.png',
     edgeThickness: '2.1 mm',
     weightReduction: '40% Lighter',
@@ -514,7 +496,7 @@ export const PRODUCTS_CATALOG_DATA: ProductItem[] = [
     material: 'Super High Resin Substrate',
     powerRange: '+10.00 / -20.00 SPH',
     keyBenefit: 'The world’s thinnest organic lens for extreme optical prescriptions.',
-    coatings: ['Aegean HMC Green', 'Pacific Blue Shield', 'Aurora Night Drive'],
+    coatings: ['Aegean HMC Green', 'Pacific Blue Shield'],
     image: '/images/hero_glass_lens.jpg',
     edgeThickness: '1.6 mm',
     weightReduction: '50% Lighter',
@@ -541,24 +523,6 @@ export const PRODUCTS_CATALOG_DATA: ProductItem[] = [
     description: 'Engineered for digital professionals, software engineers, and heavy screen users. Filters damaging high-energy blue rays while preserving color fidelity and visual comfort.',
     recommendedUse: 'Screen users, office environments, night digital work',
     highlights: ['HEV 455nm blue block', 'Zero color distortion', 'Anti-fatigue optics']
-  },
-  {
-    id: 'prod-167-night',
-    name: 'Clairlens Aurora 1.67 Night Drive Pro',
-    category: 'Premium Coatings',
-    index: '1.67',
-    material: 'MR-7 + Ruby Flare Suppressor',
-    powerRange: '+8.00 / -12.00 SPH',
-    keyBenefit: 'Suppresses LED headlight dazzle and wet road glare for night driving.',
-    coatings: ['Aurora Night Drive', 'Aegean HMC Green'],
-    image: '/images/Screenshot 2026-08-26 163255.png',
-    edgeThickness: '2.1 mm',
-    weightReduction: '40% Lighter',
-    abbeyValue: 32,
-    uvProtection: '100% UV400',
-    description: 'Combines ultra-thin 1.67 MR-7 optics with deep ruby-red glare dampening filters to reduce night-driving halo distortion from modern xenon and LED vehicle lighting.',
-    recommendedUse: 'Night driving, low-light navigation, high contrast visual demands',
-    highlights: ['LED flare suppression', 'High-contrast ruby filter', 'Ultra-thin 1.67 profile']
   }
 ];
 

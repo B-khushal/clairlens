@@ -12,7 +12,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
 
   const philosophyItems = [
     {
-      title: 'Precision',
+      title: 'Excellence',
       subtitle: 'Nanometer Accuracy',
       desc: 'Every optical surface is engineered with relentless attention to sub-micron accuracy and wavefront consistency.',
       icon: Microscope,
@@ -40,11 +40,11 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
     { step: '03', title: 'Sub-Micron Polish', desc: 'Nanometer lap-polishing eliminates surface light scattering.' },
     { step: '04', title: 'Vacuum Deposition', desc: 'Multi-layer anti-reflective coatings deposited in cleanrooms.' },
     { step: '05', title: 'Laser Interferometry', desc: 'Wavefront quality inspection checks 40,000 data points.' },
-    { step: '06', title: 'Finished Lens', desc: 'Precision-sealed and dispatched for global optical laboratories.' }
+    { step: '06', title: 'Finished Lens', desc: 'Hermetically-sealed and dispatched for global optical laboratories.' }
   ];
 
   const techFeatures = [
-    { title: 'Precision Manufacturing', desc: 'Sub-micron diamond turning ensures zero wave aberration across the lens margin.', icon: Factory },
+    { title: 'Advanced Manufacturing', desc: 'Sub-micron diamond turning ensures zero wave aberration across the lens margin.', icon: Factory },
     { title: 'Advanced Optical Design', desc: 'Wavefront point-by-point digital surfacing tailored for visual acuity.', icon: Eye },
     { title: 'Premium Coatings', desc: 'Fluorine hydrophobic and metallic oxide anti-reflective matrices.', icon: Layers },
     { title: 'Surface Protection', desc: 'Quartz-composite hard coat providing scratch resistance.', icon: ShieldCheck },
@@ -57,8 +57,8 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
   const stats = [
     { value: '1.50–1.74', label: 'Lens Index Range', detail: 'From standard to super-thin' },
     { value: '5+', label: 'Optical Substrates', detail: 'Polymer, MR-8, MR-7 & Polycarbonate' },
-    { value: '4+', label: 'Coating Matrices', detail: 'Hard, AR Green, Blue Shield, Night Drive' },
-    { value: 'Sub-Micron', label: 'Surface Precision', detail: 'Nanometer diamond polish' }
+    { value: '3+', label: 'Coating Matrices', detail: 'Hard, AR Green, Blue Shield' },
+    { value: 'Sub-Micron', label: 'Surface Accuracy', detail: 'Nanometer diamond polish' }
   ];
 
   return (
@@ -90,11 +90,11 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
 
               <h1 className="font-serif text-fluid-hero text-wine-950 font-medium mb-6 leading-tight">
                 Engineering Clarity. <br />
-                <span className="italic font-light text-gradient-wine">Defining Precision.</span>
+                <span className="italic font-light text-gradient-wine">Defining Excellence.</span>
               </h1>
 
               <p className="text-fluid-body text-gray-700 font-light leading-relaxed mb-8 max-w-2xl">
-                Clairlens combines advanced optical technology, precision manufacturing, and premium lens treatments to create lenses designed for clarity, comfort, and confidence. Built around Swiss-level standards and deep red-wine distinction.
+                Clairlens combines advanced optical technology, state-of-the-art manufacturing, and premium lens treatments to create lenses designed for clarity, comfort, and confidence. Built around Swiss-level standards and deep red-wine distinction.
               </p>
 
               <div className="flex flex-wrap items-center gap-4 sm:gap-6">
@@ -168,7 +168,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
               </div>
 
               <h2 className="font-serif text-fluid-title text-wine-950 font-medium leading-tight">
-                Where Precision Meets <span className="italic font-light text-gradient-wine">Possibility</span>
+                Where Technology Meets <span className="italic font-light text-gradient-wine">Possibility</span>
               </h2>
 
               <p className="text-fluid-body text-gray-700 font-light leading-relaxed">
@@ -274,7 +274,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
               </h2>
             </div>
             <p className="text-sm text-wine-200/80 max-w-md font-light">
-              From raw optical polymer to final anti-reflective vacuum deposition, every stage adheres to ISO 13485 cleanroom precision.
+              From raw optical polymer to final anti-reflective vacuum deposition, every stage adheres to ISO 13485 cleanroom standards.
             </p>
           </div>
 
@@ -393,10 +393,10 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
           <div className="rounded-3xl p-8 sm:p-14 glass-wine text-white text-center relative overflow-hidden shadow-2xl">
             <div className="max-w-2xl mx-auto relative z-10">
               <span className="text-xs uppercase font-mono tracking-widest text-wine-300 font-semibold block mb-3">
-                Precision Optical Technology
+                Advanced Optical Technology
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl font-medium mb-4">
-                Clarity Begins With Precision.
+                Clarity Begins With Quality.
               </h2>
               <p className="text-sm text-wine-200/90 font-light leading-relaxed mb-8">
                 Discover the full spectrum of Clairlens optical indices, custom coating matrices, and partner opportunities.

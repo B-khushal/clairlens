@@ -47,7 +47,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <button onClick={() => handleNav('home')} className="text-wine-200/70 hover:text-white transition-colors py-1 text-left">Home Overview</button>
               </li>
               <li>
-                <button onClick={() => handleNav('about')} className="text-wine-200/70 hover:text-white transition-colors py-1 text-left">About Clairlens Precision</button>
+                <button onClick={() => handleNav('about')} className="text-wine-200/70 hover:text-white transition-colors py-1 text-left">About Clairlens</button>
               </li>
               <li>
                 <button onClick={() => handleNav('products')} className="text-wine-200/70 hover:text-white transition-colors py-1 text-left">Complete Lens Range</button>
@@ -62,7 +62,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div>
             <h4 className="text-xs font-semibold tracking-widest uppercase text-wine-300 mb-4 sm:mb-6 font-mono">Coating Matrix</h4>
             <ul className="space-y-2.5 text-xs font-light">
-              {['Silica (Hard Coat)', 'Aegean (HMC Green Coat)', 'Pacific (Blue Coat)', 'Aurora Range (Night Drive Coat)'].map(item => (
+              {['Silica (Hard Coat)', 'Aegean (HMC Green Coat)', 'Pacific (Blue Coat)'].map(item => (
                 <li key={item}>
                   <button onClick={() => handleNav('products')} className="text-wine-200/70 hover:text-white transition-colors py-1 text-left">{item}</button>
                 </li>
@@ -70,9 +70,9 @@ export default function Footer({ onNavigate }: FooterProps) {
             </ul>
           </div>
           
-          {/* Precision Tech Links */}
+          {/* Optical Tech Links */}
           <div>
-            <h4 className="text-xs font-semibold tracking-widest uppercase text-wine-300 mb-4 sm:mb-6 font-mono">Precision Tech</h4>
+            <h4 className="text-xs font-semibold tracking-widest uppercase text-wine-300 mb-4 sm:mb-6 font-mono">Optical Tech</h4>
             <ul className="space-y-2.5 text-xs font-light">
               {['Freeform Surfacing', 'Wavefront Interferometry', 'Diamond Cutting Cleanroom', 'Automated Vacuum AR Lab'].map(item => (
                 <li key={item}>
