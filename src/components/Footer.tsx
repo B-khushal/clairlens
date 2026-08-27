@@ -19,11 +19,16 @@ export default function Footer({ onNavigate }: FooterProps) {
           
           {/* Brand Col */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <button onClick={() => handleNav('home')} className="group mb-4 sm:mb-6 text-left focus:outline-none block">
+            <button onClick={() => handleNav('home')} className="group mb-4 sm:mb-6 text-left focus:outline-none flex items-center gap-2 sm:gap-2.5">
               <img 
-                src="/Screenshot 2025-05-29 at 8.22.01 PM_page-0001.jpg" 
+                src="/1.png" 
+                alt="CLAIRLENS Emblem" 
+                className="h-10 sm:h-12 w-auto object-contain brightness-0 invert opacity-90 transition-transform duration-300 group-hover:scale-105"
+              />
+              <img 
+                src="/2.png" 
                 alt="CLAIRLENS - A Unit of Clairvoyant Ophthalmics" 
-                className="h-14 sm:h-16 w-auto object-contain rounded-xl transition-transform duration-300 group-hover:scale-105"
+                className="h-8 sm:h-10 w-auto object-contain brightness-0 invert opacity-90 transition-transform duration-300 group-hover:scale-105"
               />
             </button>
             <p className="text-xs text-wine-200/80 font-light leading-relaxed max-w-xs mb-4 sm:mb-6">
@@ -57,7 +62,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div>
             <h4 className="text-xs font-semibold tracking-widest uppercase text-wine-300 mb-4 sm:mb-6 font-mono">Coating Matrix</h4>
             <ul className="space-y-2.5 text-xs font-light">
-              {['Silica Hard Coat', 'Aegean HMC Green', 'Pacific Blue Shield', 'Aurora Night Drive'].map(item => (
+              {['Silica (Hard Coat)', 'Aegean (HMC Green Coat)', 'Pacific (Blue Coat)', 'Aurora Range (Night Drive Coat)'].map(item => (
                 <li key={item}>
                   <button onClick={() => handleNav('products')} className="text-wine-200/70 hover:text-white transition-colors py-1 text-left">{item}</button>
                 </li>

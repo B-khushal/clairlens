@@ -77,7 +77,8 @@ export default function ContactPage({ onNavigate, initialData }: ContactPageProp
 
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-wine-800/20 bg-white/90 backdrop-blur-md text-xs font-semibold tracking-widest text-wine-950 uppercase mb-6 shadow-sm">
-              <img src="/Business card 29 May 2025_page-0001.jpg" alt="CLAIRLENS" className="h-6 w-auto object-contain" />
+              <img src="/1.png" alt="CLAIRLENS Emblem" className="h-8 w-auto object-contain" />
+              <img src="/2.png" alt="CLAIRLENS" className="h-6 w-auto object-contain" />
               <span className="text-[10px] font-mono text-wine-800 font-bold border-l border-wine-200 pl-3">A UNIT OF CLAIRVOYANT OPHTHALMICS</span>
             </div>
 
@@ -130,7 +131,7 @@ export default function ContactPage({ onNavigate, initialData }: ContactPageProp
                 </div>
                 <h3 className="font-serif text-xl font-medium text-wine-950">Telephone Support</h3>
                 <p className="text-xs text-gray-600 font-light leading-relaxed">
-                  Direct connection to our Zurich optical headquarters and international order desk.
+                  Direct connection to Clairvoyant Ophthalmics headquarters and support desk.
                 </p>
                 <div className="pt-2 font-mono text-sm space-y-1">
                   <div className="text-wine-900 font-semibold">HQ: {COMPANY_INFO.phone}</div>
@@ -392,19 +393,19 @@ export default function ContactPage({ onNavigate, initialData }: ContactPageProp
                   Visit Clairlens Facility
                 </span>
                 <h3 className="font-serif text-2xl font-medium text-wine-950">
-                  Zurich Optical Manufacturing Hub
+                  Optical Manufacturing Facility
                 </h3>
                 <p className="text-xs text-gray-600 font-light leading-relaxed">
-                  Located in Zurich's premier High-Tech Optics Valley, our ISO Class 5 facility is open for technical distributor audits and partner cleanroom tours by prior appointment.
+                  Located in Balanagar Industrial Estate, Hyderabad, our high-precision facility is open for technical distributor audits and partner cleanroom tours by prior appointment.
                 </p>
                 <div className="space-y-2 text-xs font-mono text-wine-950 pt-2">
                   <div className="flex items-center gap-2">
                     <Building className="w-4 h-4 text-wine-700" />
-                    <span>Optics Valley 12, 8001 Zurich, Switzerland</span>
+                    <span>Plot No 60, S.V.C.I.E, Phase 2, Balanagar, Hyderabad, Telangana</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Globe className="w-4 h-4 text-wine-700" />
-                    <span>International Visitor Desk: +41 44 890 2100</span>
+                    <span>Website: www.clairlens.com</span>
                   </div>
                 </div>
               </div>
@@ -414,18 +415,18 @@ export default function ContactPage({ onNavigate, initialData }: ContactPageProp
                 <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
                 <div className="relative z-10 flex items-center justify-between">
                   <span className="text-[11px] font-mono text-wine-300 font-bold uppercase tracking-wider">
-                    GPS Coordinates
+                    Manufacturing Facility
                   </span>
                   <span className="px-3 py-1 rounded-full bg-wine-900 border border-wine-500/40 text-[10px] font-mono text-wine-200">
-                    47.3769° N, 8.5417° E
+                    Hyderabad, Telangana
                   </span>
                 </div>
                 <div className="relative z-10">
                   <div className="text-lg font-serif text-white font-medium mb-1">
-                    Clairlens AG Facility
+                    Clairvoyant Ophthalmics Pvt. Ltd.
                   </div>
                   <div className="text-xs text-wine-200/80 font-mono">
-                    Zurich Cleanroom Lab • ISO 13485 Certified
+                    Balanagar Industrial Cleanroom • ISO Certified
                   </div>
                 </div>
               </div>

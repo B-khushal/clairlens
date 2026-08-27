@@ -1,8 +1,9 @@
 import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Search, SlidersHorizontal, ArrowRight, X, Check, ShieldCheck, Layers, Eye, CheckCircle2, ChevronRight } from 'lucide-react';
+import { Search, SlidersHorizontal, ArrowRight, X, Check, ShieldCheck, Layers, Eye, CheckCircle2, ChevronRight, ChevronDown } from 'lucide-react';
 import Breadcrumbs from './Breadcrumbs';
-import { PRODUCTS_CATALOG_DATA, ProductItem, COATINGS_DATA, LENS_INDICES_DATA, HERO_ASSET } from '../data/assetsData';
+import { PRODUCTS_CATALOG_DATA, ProductItem, COATINGS_DATA, LENS_INDICES_DATA, HERO_ASSET, ULTIMATE_SERIES_DATA, COMPANY_INFO } from '../data/assetsData';
+import { GlassSliceVisualizer } from './LensIndex';
 
 interface ProductsPageProps {
   onNavigate: (page: string, data?: any) => void;
@@ -25,6 +26,7 @@ export default function ProductsPage({ onNavigate }: ProductsPageProps) {
   }, [activeModalProduct]);
 
   const [comparisonIndex, setComparisonIndex] = useState(LENS_INDICES_DATA[4]); // Default 1.67
+  const [expandedMobileId, setExpandedMobileId] = useState<string | null>(LENS_INDICES_DATA[4].id);
 
   const categories = [
     'All Ranges',
@@ -296,123 +298,202 @@ export default function ProductsPage({ onNavigate }: ProductsPageProps) {
       </section>
 
       {/* 4. DEDICATED LENS INDEX COMPARISON MODULE */}
-      <section className="py-20 sm:py-24 bg-white/80 border-y border-wine-800/10 backdrop-blur-md">
-        <div className="container-fluid">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+      <section className="py-20 sm:py-24 bg-white/80 border-y border-wine-800/10 backdrop-blur-md relative overflow-hidden">
+        <div className="container-fluid relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
             <span className="text-xs uppercase font-mono tracking-widest text-wine-800 font-bold block mb-2">
               Optical Engineering Comparison
             </span>
             <h2 className="font-serif text-fluid-title text-wine-950 font-medium mb-4">
-              Find Your Ideal <span className="italic font-light text-gradient-wine">Optical Index</span>
+              Find Your Ideal <span className="italic font-light text-gradient-wine">Index for Your Eyes</span>
             </h2>
-            <p className="text-fluid-body text-gray-700 font-light">
-              Compare physical edge thickness, weight reduction percentage, and Abbe optical clarity values across our complete substrate range.
+            <p className="text-fluid-body text-gray-700 font-light leading-relaxed">
+              Lens Index refers to how much a lens can bend light. Higher the index, thinner the lens. Compare physical edge thickness, weight reduction percentage, and Abbe optical clarity values across our complete substrate range.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            {/* Index Selector buttons */}
-            <div className="lg:col-span-6 space-y-3">
-              {LENS_INDICES_DATA.map((item) => {
-                const isActive = comparisonIndex.id === item.id;
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => setComparisonIndex(item)}
-                    className={`w-full text-left rounded-2xl p-4 transition-all duration-300 border ${
-                      isActive
-                        ? 'bg-wine-950 text-white border-wine-500/40 shadow-xl shadow-wine-950/20'
-                        : 'bg-white text-wine-950 border-wine-800/10 hover:border-wine-800/30'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3.5">
-                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-serif text-xl font-bold border ${
-                          isActive ? 'bg-wine-800 text-white border-wine-400/50' : 'bg-wine-50 text-wine-950 border-wine-800/20'
-                        }`}>
-                          {item.index}
-                        </div>
-                        <div>
-                          <div className={`text-sm font-semibold ${isActive ? 'text-white' : 'text-wine-950'}`}>
-                            {item.material}
+          <div className="rounded-3xl p-4 sm:p-8 lg:p-10 glass-light border-white/80 shadow-2xl shadow-wine-950/10 relative overflow-hidden">
+            <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 lg:gap-12 items-start">
+              
+              {/* Left Column: Responsive Specification Cards / Table */}
+              <div className="xl:col-span-7 space-y-3">
+                <div className="hidden sm:flex items-center justify-between px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-wine-900/70 border-b border-wine-800/10 mb-2">
+                  <span>Select Optical Index</span>
+                  <span>Substrate Material & Power Range</span>
+                </div>
+
+                <div className="space-y-3">
+                  {LENS_INDICES_DATA.map((item) => {
+                    const isActive = comparisonIndex.id === item.id;
+                    const isMobileExpanded = expandedMobileId === item.id;
+
+                    return (
+                      <div key={item.id} className="w-full">
+                        <motion.button
+                          type="button"
+                          onClick={() => {
+                            setComparisonIndex(item);
+                            setExpandedMobileId(prev => (prev === item.id ? null : item.id));
+                          }}
+                          whileHover={{ scale: 1.005 }}
+                          whileTap={{ scale: 0.995 }}
+                          className={`w-full text-left rounded-2xl p-4 sm:p-5 transition-all duration-300 border min-h-[64px] ${
+                            isActive
+                              ? 'bg-gradient-to-r from-wine-950 via-wine-900 to-wine-950 text-white border-wine-500/40 shadow-xl shadow-wine-950/25'
+                              : 'bg-white/80 backdrop-blur-md text-wine-950 border-wine-800/10 hover:border-wine-800/30 hover:bg-white'
+                          }`}
+                        >
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+                            
+                            {/* Index Badge, Material Name & Mobile Dropdown Pill */}
+                            <div className="flex items-center justify-between sm:justify-start w-full sm:w-auto">
+                              <div className="flex items-center gap-3.5">
+                                <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center font-serif text-xl sm:text-2xl font-bold border shrink-0 transition-colors ${
+                                  isActive
+                                    ? 'bg-wine-800 text-white border-wine-400/50 shadow-inner'
+                                    : 'bg-wine-50 text-wine-950 border-wine-800/20'
+                                }`}>
+                                  {item.index}
+                                </div>
+                                <div>
+                                  <div className={`text-sm sm:text-base font-semibold ${isActive ? 'text-white' : 'text-wine-950'}`}>
+                                    {item.material}
+                                  </div>
+                                  <div className={`text-xs ${isActive ? 'text-wine-200' : 'text-gray-600'}`}>
+                                    {item.bestFor}
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Mobile Dropdown indicator chevron */}
+                              <div className={`xl:hidden flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold border transition-colors ${
+                                isActive 
+                                  ? 'bg-wine-800/80 text-wine-100 border-wine-500/40' 
+                                  : 'bg-wine-100/80 text-wine-900 border-wine-800/20'
+                              }`}>
+                                <span className="uppercase tracking-wider text-[9px]">{isMobileExpanded ? 'Slice' : 'View Slice'}</span>
+                                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${isMobileExpanded ? 'rotate-180' : ''}`} />
+                              </div>
+                            </div>
+
+                            {/* Prescription Range & Weight Bar */}
+                            <div className="flex items-center justify-between sm:justify-end gap-4 sm:border-l sm:border-wine-800/20 sm:pl-5 pt-2 sm:pt-0 border-t border-wine-800/10 sm:border-t-0">
+                              <div className="text-left sm:text-right">
+                                <div className={`text-xs font-mono font-semibold ${isActive ? 'text-wine-200' : 'text-wine-900'}`}>
+                                  {item.power}
+                                </div>
+                                <div className={`text-[10px] uppercase tracking-wider ${isActive ? 'text-wine-300/80' : 'text-gray-500'}`}>
+                                  Edge: {item.edgeThicknessMm}
+                                </div>
+                              </div>
+
+                              {/* Relative Thickness Bar Indicator */}
+                              <div className="w-16 flex flex-col gap-1 items-end">
+                                <span className={`text-[10px] font-mono ${isActive ? 'text-wine-200' : 'text-gray-500'}`}>
+                                  {item.weightReduction}
+                                </span>
+                                <div className="w-full h-1.5 bg-gray-200/50 rounded-full overflow-hidden">
+                                  <div 
+                                    className={`h-full rounded-full transition-all duration-500 ${
+                                      isActive ? 'bg-gradient-to-r from-wine-300 to-white' : 'bg-wine-700'
+                                    }`}
+                                    style={{ width: `${item.thickness}%` }}
+                                  />
+                                </div>
+                              </div>
+                            </div>
+
                           </div>
-                          <div className={`text-xs ${isActive ? 'text-wine-200' : 'text-gray-500'}`}>
-                            {item.power}
-                          </div>
+                        </motion.button>
+
+                        {/* Inline Dropdown Visualizer for Mobile Only (xl:hidden) */}
+                        <div className="xl:hidden">
+                          <AnimatePresence initial={false}>
+                            {isMobileExpanded && (
+                              <motion.div
+                                key={`mobile-slice-${item.id}`}
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.35, ease: 'easeInOut' }}
+                                className="overflow-hidden"
+                              >
+                                <GlassSliceVisualizer activeIndex={item} isMobile={true} />
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </div>
                       </div>
+                    );
+                  })}
+                </div>
+              </div>
 
-                      <div className="text-right font-mono">
-                        <div className={`text-xs font-bold ${isActive ? 'text-wine-200' : 'text-wine-900'}`}>
-                          {item.edgeThicknessMm}
-                        </div>
-                        <div className={`text-[10px] ${isActive ? 'text-wine-300' : 'text-gray-500'}`}>
-                          {item.weightReduction}
-                        </div>
-                      </div>
-                    </div>
-                  </button>
-                );
-              })}
+              {/* Right Column: Dynamic Physical Glass Thickness Visualizer (Desktop Only) */}
+              <div className="hidden xl:block xl:col-span-5 relative xl:sticky xl:top-28">
+                <GlassSliceVisualizer activeIndex={comparisonIndex} />
+              </div>
+
             </div>
-
-            {/* Comparison Visualizer Box */}
-            <div className="lg:col-span-6 rounded-3xl p-6 sm:p-8 bg-wine-950 text-white border border-wine-500/30 shadow-2xl relative overflow-hidden">
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-mono uppercase tracking-widest text-wine-300 font-semibold">
-                  Profile Cutaway Analysis
-                </span>
-                <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-wine-800 text-wine-100 border border-wine-500/40">
-                  {comparisonIndex.index} Index
-                </span>
-              </div>
-
-              <h3 className="font-serif text-2xl font-medium text-white mb-2">
-                {comparisonIndex.material}
-              </h3>
-              <p className="text-xs text-wine-200/80 mb-6 font-light">
-                {comparisonIndex.description}
-              </p>
-
-              {/* Animated Lens Shape Cutaway */}
-              <div className="h-40 rounded-2xl bg-wine-900/60 border border-wine-700/40 flex items-center justify-center p-4 mb-6 relative overflow-hidden">
-                <motion.div
-                  key={comparisonIndex.id}
-                  initial={{ scale: 0.9, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.4 }}
-                  className="w-full max-w-[200px] rounded-[50%] bg-gradient-to-b from-white/90 via-white/30 to-wine-500/20 backdrop-blur-md border border-white/80 shadow-2xl flex items-center justify-center"
-                  style={{ height: `${(comparisonIndex.thickness / 100) * 90 + 20}px` }}
-                >
-                  <span className="font-mono text-sm font-bold text-wine-950 drop-shadow-sm">
-                    {comparisonIndex.edgeThicknessMm}
-                  </span>
-                </motion.div>
-              </div>
-
-              {/* Metrics Grid */}
-              <div className="grid grid-cols-3 gap-3 text-center pt-4 border-t border-wine-800/60 font-mono">
-                <div className="p-2.5 rounded-xl bg-wine-900/60 border border-wine-700/40">
-                  <div className="text-[10px] text-wine-300">Abbe Value</div>
-                  <div className="text-sm font-semibold text-white">{comparisonIndex.abbeyValue}</div>
-                </div>
-                <div className="p-2.5 rounded-xl bg-wine-900/60 border border-wine-700/40">
-                  <div className="text-[10px] text-wine-300">Density</div>
-                  <div className="text-sm font-semibold text-white">{comparisonIndex.density}</div>
-                </div>
-                <div className="p-2.5 rounded-xl bg-wine-900/60 border border-wine-700/40">
-                  <div className="text-[10px] text-wine-300">UV Cut</div>
-                  <div className="text-sm font-semibold text-white">{comparisonIndex.uvProtection}</div>
-                </div>
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
 
-      {/* 5. COATING COMPATIBILITY MATRIX SHOWCASE */}
+      {/* 5. THE CLAIRLENS ULTIMATE PROGRESSIVE SERIES */}
+      <section className="py-20 sm:py-24 bg-wine-950 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-wine-800/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="container-fluid relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs uppercase font-mono tracking-widest text-wine-300 font-bold block mb-2">
+              Progressive Precision Engineering
+            </span>
+            <h2 className="font-serif text-fluid-title text-white font-medium mb-4">
+              The Clairlens <span className="italic font-light text-gradient-wine">Ultimate Series</span>
+            </h2>
+            <p className="text-fluid-body text-wine-200/90 font-light leading-relaxed">
+              Precision-crafted progressive lenses designed for distinctive lifestyles, using next-generation German digital freeform technology.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {ULTIMATE_SERIES_DATA.map((item) => (
+              <div key={item.id} className="rounded-3xl p-6 sm:p-8 bg-gradient-to-b from-wine-900/80 to-wine-950 border border-wine-500/30 shadow-2xl flex flex-col justify-between">
+                <div>
+                  <div className="text-[10px] font-mono uppercase tracking-widest text-wine-300 font-bold mb-1">
+                    Progressive Line
+                  </div>
+                  <h3 className="font-serif text-2xl font-medium text-white mb-1">
+                    {item.name}
+                  </h3>
+                  <div className="text-xs text-wine-200 font-medium mb-4 italic">
+                    {item.tagline}
+                  </div>
+                  <p className="text-xs text-wine-100/80 font-light leading-relaxed mb-6">
+                    {item.description}
+                  </p>
+
+                  <div className="mb-6 space-y-2 pt-4 border-t border-wine-800/80">
+                    <div className="text-[10px] font-mono uppercase text-wine-300 font-bold">Key Features</div>
+                    {item.keyFeatures.map((kf, idx) => (
+                      <div key={idx} className="flex items-start gap-2 text-xs text-wine-100 font-light">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-wine-400 shrink-0 mt-0.5" />
+                        <span>{kf}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-wine-900/60 border border-wine-700/40 text-[11px] text-wine-200 font-mono leading-relaxed">
+                  <span className="font-bold text-white block mb-1">Did You Know?</span>
+                  {item.fact}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. COATING COMPATIBILITY MATRIX SHOWCASE */}
       <section className="py-20 sm:py-24">
         <div className="container-fluid">
           <div className="text-center max-w-2xl mx-auto mb-16">
@@ -462,7 +543,27 @@ export default function ProductsPage({ onNavigate }: ProductsPageProps) {
         </div>
       </section>
 
-      {/* 6. PRODUCTS CTA */}
+      {/* 7. OFFICIAL CATALOG TERMS AND CONDITIONS */}
+      <section className="py-12 bg-wine-50 border-t border-wine-800/10">
+        <div className="container-fluid">
+          <div className="max-w-4xl mx-auto bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-wine-800/15 shadow-lg">
+            <div className="flex items-center gap-3 mb-4">
+              <ShieldCheck className="w-5 h-5 text-wine-800" />
+              <h3 className="font-serif text-xl font-medium text-wine-950">Catalog Terms & Conditions</h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-gray-700 font-mono">
+              {COMPANY_INFO.terms.map((term, i) => (
+                <div key={i} className="flex items-start gap-2">
+                  <span className="text-wine-700 font-bold">•</span>
+                  <span>{term}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. PRODUCTS CTA */}
       <section className="py-20 sm:py-24 bg-wine-950 text-white relative">
         <div className="container-fluid text-center">
           <div className="max-w-2xl mx-auto">

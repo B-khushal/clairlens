@@ -83,7 +83,8 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
               className="lg:col-span-7"
             >
               <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-wine-800/20 bg-white/90 backdrop-blur-md text-xs font-semibold tracking-widest text-wine-950 uppercase mb-6 shadow-sm">
-                <img src="/Business card 29 May 2025_page-0001.jpg" alt="CLAIRLENS" className="h-6 w-auto object-contain" />
+                <img src="/1.png" alt="CLAIRLENS Emblem" className="h-8 w-auto object-contain" />
+                <img src="/2.png" alt="CLAIRLENS" className="h-6 w-auto object-contain" />
                 <span className="text-[10px] font-mono text-wine-800 font-bold border-l border-wine-200 pl-3">A UNIT OF CLAIRVOYANT OPHTHALMICS</span>
               </div>
 
@@ -311,7 +312,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             <div className="absolute inset-0 bg-gradient-to-t from-wine-950 via-wine-950/40 to-transparent flex items-end p-6 sm:p-8">
               <div>
                 <span className="text-xs font-mono uppercase tracking-widest text-wine-300 font-semibold block mb-1">
-                  Cleanroom Facility Zurich
+                  Clairlens Manufacturing Facility — Balanagar, Hyderabad
                 </span>
                 <div className="text-lg font-serif text-white font-medium">
                   ISO Class 5 Cleanroom Environment — Zero Dust Adhesion Guarantee

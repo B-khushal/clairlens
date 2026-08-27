@@ -19,10 +19,10 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<string>('home');
   const [navigationData, setNavigationData] = useState<any>(null);
 
-  // Sync hash routing on load & popstate
+  // Sync hash routing on load, popstate, and hashchange
   useEffect(() => {
     const handleHash = () => {
-      const hash = window.location.hash.replace('#', '');
+      const hash = window.location.hash.replace('#', '').trim();
       if (hash === 'about' || hash === 'products' || hash === 'contact') {
         setCurrentPage(hash);
       } else if (hash) {
@@ -31,12 +31,18 @@ export default function App() {
           const el = document.getElementById(hash);
           if (el) el.scrollIntoView({ behavior: 'smooth' });
         }, 100);
+      } else {
+        setCurrentPage('home');
       }
     };
 
     handleHash();
     window.addEventListener('popstate', handleHash);
-    return () => window.removeEventListener('popstate', handleHash);
+    window.addEventListener('hashchange', handleHash);
+    return () => {
+      window.removeEventListener('popstate', handleHash);
+      window.removeEventListener('hashchange', handleHash);
+    };
   }, []);
 
   // Dynamic Document Title for SEO & Browser History

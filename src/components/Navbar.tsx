@@ -56,16 +56,21 @@ export default function Navbar({ currentPage = 'home', onNavigate }: NavbarProps
               : 'bg-white/50 backdrop-blur-md border border-white/60 shadow-md shadow-wine-900/5'
           }`}
         >
-          {/* Official Clairlens Logo */}
+          {/* Official Clairlens Logo (1.png mark placed before 2.png brand name) */}
           <button 
             onClick={() => handleNavClick('home')}
-            className="flex items-center group focus:outline-none text-left py-0.5" 
+            className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none text-left py-0.5" 
             aria-label="Clairlens Home"
           >
             <img 
-              src="/Business card 29 May 2025_page-0001.jpg" 
-              alt="CLAIRLENS - A Unit of Clairvoyant Ophthalmics" 
-              className="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              src="/1.png" 
+              alt="CLAIRLENS Emblem" 
+              className="h-9 sm:h-11 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+            <img 
+              src="/2.png" 
+              alt="CLAIRLENS" 
+              className="h-7 sm:h-9 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </button>
 
@@ -125,11 +130,18 @@ export default function Navbar({ currentPage = 'home', onNavigate }: NavbarProps
             className="mt-3 max-w-[1440px] mx-auto lg:hidden rounded-3xl bg-white/95 backdrop-blur-2xl border border-wine-800/20 shadow-2xl p-6 flex flex-col gap-4 pointer-events-auto"
           >
             <div className="flex items-center justify-between pb-3 border-b border-wine-100">
-              <img 
-                src="/Business card 29 May 2025_page-0001.jpg" 
-                alt="CLAIRLENS" 
-                className="h-8 w-auto object-contain"
-              />
+              <div className="flex items-center gap-2.5">
+                <img 
+                  src="/1.png" 
+                  alt="CLAIRLENS Emblem" 
+                  className="h-8 w-auto object-contain"
+                />
+                <img 
+                  src="/2.png" 
+                  alt="CLAIRLENS" 
+                  className="h-6.5 w-auto object-contain"
+                />
+              </div>
               <button 
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-xs text-wine-600 font-semibold uppercase tracking-wider"

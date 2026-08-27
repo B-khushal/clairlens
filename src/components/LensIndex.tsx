@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { LENS_INDICES_DATA, LENS_INDEX_TECH_ASSET } from '../data/assetsData';
+import { LENS_INDICES_DATA } from '../data/assetsData';
 import { Sliders, ChevronDown } from 'lucide-react';
 
 interface GlassSliceVisualizerProps {
@@ -8,7 +8,7 @@ interface GlassSliceVisualizerProps {
   isMobile?: boolean;
 }
 
-function GlassSliceVisualizer({ activeIndex, isMobile = false }: GlassSliceVisualizerProps) {
+export function GlassSliceVisualizer({ activeIndex, isMobile = false }: GlassSliceVisualizerProps) {
   // Dynamic edge height calculation: 1.50 = 48px down to 1.74 = 10px for maximum visual thickness contrast
   const edgeHeights: Record<string, number> = {
     '1.50': 48,
@@ -136,19 +136,7 @@ function GlassSliceVisualizer({ activeIndex, isMobile = false }: GlassSliceVisua
         </div>
       </div>
 
-      {/* Technical Diagram Showcase Thumbnail */}
-      <div className="mt-4 pt-3.5 border-t border-wine-800/60 flex items-center gap-3.5 relative z-10">
-        <img 
-          src={LENS_INDEX_TECH_ASSET.src}
-          alt={LENS_INDEX_TECH_ASSET.alt}
-          className="w-14 h-10 sm:w-16 sm:h-12 object-cover rounded-lg border border-wine-500/40 shrink-0"
-          loading="lazy"
-        />
-        <div>
-          <div className="text-xs font-semibold text-white">Wavefront Ray Tracing</div>
-          <div className="text-[10px] text-wine-200">Sub-nanometer light dispersion analysis</div>
-        </div>
-      </div>
+
 
     </div>
   );
@@ -194,7 +182,7 @@ export default function LensIndex({ onNavigate }: LensIndexProps) {
             transition={{ delay: 0.1 }}
             className="font-serif text-fluid-title text-wine-950 mb-4 sm:mb-6 font-medium"
           >
-            Choose the Right <span className="italic font-light text-gradient-wine">Optical Index</span>
+            Choose the Right <span className="italic font-light text-gradient-wine">Index for Your Eyes</span>
           </motion.h2>
 
           <motion.p 
@@ -204,7 +192,7 @@ export default function LensIndex({ onNavigate }: LensIndexProps) {
             transition={{ delay: 0.2 }}
             className="text-fluid-body text-gray-700 font-light leading-relaxed"
           >
-            Refractive index determines the efficiency with which glass bends light. Higher indices produce dramatically thinner, lighter lenses for strong prescriptions without altering optical Abbe clarity.
+            Lens Index refers to how much a lens can bend light. Higher the index, thinner the lens. This helps people with higher prescriptions get lightweight, aesthetically better lenses. If your prescription is strong, the wrong index can cause your eyes to look unusually large or small in photos. High-index lenses keep your look natural and stylish, no matter your power.
           </motion.p>
         </div>
 

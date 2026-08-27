@@ -134,9 +134,14 @@ export default function Hero({ onNavigate }: HeroProps) {
             className="mb-4 sm:mb-6 inline-flex items-center gap-3 px-4 py-2 rounded-full border border-wine-800/20 bg-white/90 backdrop-blur-xl shadow-sm"
           >
             <img 
-              src="/Business card 29 May 2025_page-0001.jpg" 
+              src="/1.png" 
+              alt="CLAIRLENS Emblem" 
+              className="h-8 sm:h-9 w-auto object-contain"
+            />
+            <img 
+              src="/2.png" 
               alt="CLAIRLENS" 
-              className="h-6.5 w-auto object-contain"
+              className="h-6 sm:h-7 w-auto object-contain"
             />
             <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.16em] text-wine-950 uppercase font-mono border-l border-wine-200 pl-3">
               A UNIT OF CLAIRVOYANT OPHTHALMICS
