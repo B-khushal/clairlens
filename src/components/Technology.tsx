@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Cpu, Scan, CheckCircle2 } from 'lucide-react';
+import { Cpu, CheckCircle2 } from 'lucide-react';
 import { TECHNOLOGY_OPTICS_ASSET } from '../data/assetsData';
 
 export default function Technology() {
@@ -33,7 +33,7 @@ export default function Technology() {
             </h2>
 
             <p className="text-fluid-body text-wine-100/90 font-light leading-relaxed mb-8 sm:mb-10">
-              Our cleanroom laboratories utilize multi-axis digital freeform generators capable of shaping optical glass curves down to 1/100th of a micron. This guarantees your exact wavefront prescription is rendered flawlessly across 100% of the lens.
+              Our laboratories utilize multi-axis digital freeform generators capable of shaping optical glass curves. This guarantees your exact wavefront prescription is rendered flawlessly across the lens.
             </p>
 
             {/* Feature List */}
@@ -41,7 +41,7 @@ export default function Technology() {
               {[
                 { title: 'Point-by-Point Freeform Surfacing', desc: 'Custom calculated optics for every individual gaze angle' },
                 { title: 'Vacuum Ion AR Deposition', desc: 'Multi-layer anti-reflective chamber vacuum coating' },
-                { title: '3D Wavefront Topography Scan', desc: 'Eliminates high-order aberrations and peripheral blur' },
+                { title: 'AI Design Freeform Lens', desc: 'Eliminates high-order aberrations and peripheral blur' },
                 { title: 'Sub-Micron Laser Engraving', desc: 'Microscopic optical reference markers burned into lens edge' }
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3.5 p-3.5 sm:p-4 rounded-xl bg-wine-900/50 border border-wine-700/40 backdrop-blur-md">
@@ -89,18 +89,7 @@ export default function Technology() {
                   </span>
                 </div>
 
-                {/* Bottom HUD Tag */}
-                <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-wine-950/85 backdrop-blur-md border border-white/20 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-wine-800 border border-wine-500/50 flex items-center justify-center shrink-0">
-                      <Scan className="w-4 h-4 text-wine-200" />
-                    </div>
-                    <div>
-                      <div className="text-xs font-semibold text-white">Wavefront Scanning Active</div>
-                      <div className="text-[10px] text-wine-200">40,000 reference points calculated per lens</div>
-                    </div>
-                  </div>
-                </div>
+
 
               </div>
 

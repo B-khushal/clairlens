@@ -84,7 +84,7 @@ export const COATINGS_DATA: CoatingSpec[] = [
     name: 'Aegean',
     label: 'HMC Green Coat',
     positioning: 'Anti-Glare Clarity for All Environments',
-    description: 'The Aegean coating, featuring a green HMC layer, offers exceptional glare reduction, hydrophobic protection, and antistatic properties, making it perfect for everyday use in varying lighting conditions.',
+    description: 'The Aegean coating, featuring a green HMC layer, offers exceptional glare reduction and super hydrophobic protection, making it perfect for everyday use in varying lighting conditions.',
     image: '/images/Screenshot 2026-08-26 163212.png',
     altText: 'Aegean HMC Green anti-reflective coating showcasing emerald glare reflection',
     color: 'from-emerald-950/40 to-emerald-900/20',
@@ -94,14 +94,14 @@ export const COATINGS_DATA: CoatingSpec[] = [
     glowColor: 'rgba(16, 185, 129, 0.4)',
     borderGlow: 'border-emerald-500/40',
     badge: 'Anti-Reflection',
-    features: ['Green HMC Layer', 'Exceptional Glare Reduction', 'Hydrophobic Protection', 'Antistatic Properties']
+    features: ['Green HMC Layer', 'Exceptional Glare Reduction', 'Super Hydrophobic Protection']
   },
   {
     id: 'pacific',
     name: 'Pacific',
     label: 'Blue Coat',
     positioning: 'Optimised Digital Vision',
-    description: 'Our Pacific coat incorporates a blue HMC coating, specifically designed to minimise digital eye strain. Perfect for extensive screen use, this coating significantly reduces harmful blue light and glare.',
+    description: 'Our Pacific coat incorporates a blue HMC coating, specifically designed to minimise digital eye strain. Perfect for extensive screen use, this coating significantly reduces super harmful blue light and glare.',
     image: '/images/Screenshot 2026-08-26 163246.png',
     altText: 'Pacific Blue Coat lens displaying sapphire blue light protection sheen',
     color: 'from-blue-950/40 to-blue-900/20',
@@ -110,8 +110,8 @@ export const COATINGS_DATA: CoatingSpec[] = [
     accent: 'bg-blue-500',
     glowColor: 'rgba(59, 130, 246, 0.4)',
     borderGlow: 'border-blue-500/40',
-    badge: 'Digital Shield',
-    features: ['Blue HMC Layer', 'Minimises Digital Eye Strain', 'Harmful Blue Light Filter', 'Screen Glare Reduction']
+    badge: 'Super Digital Shield',
+    features: ['Blue HMC Layer', 'Minimises Digital Eye Strain', 'Super Harmful Blue Light Filter', 'Screen Glare Reduction']
   }
 ];
 
@@ -216,22 +216,10 @@ export const FEATURES_DATA = [
     icon: 'ShieldCheck'
   },
   {
-    title: 'Hydrophobic & Oleophobic',
-    subtitle: 'Water & Oil Repellent',
-    description: 'Advanced fluorine coating causes water droplets and finger oils to bead up and slip off instantly.',
+    title: 'Hydrophobic',
+    subtitle: 'Water Repellent',
+    description: 'Advanced coating causes water droplets to bead up and slip off instantly.',
     icon: 'Droplets'
-  },
-  {
-    title: 'Anti-Static Dust Shield',
-    subtitle: 'Zero Particle Adhesion',
-    description: 'Neutralizes static electricity build-up on the lens surface so environmental dust particles never stick.',
-    icon: 'Zap'
-  },
-  {
-    title: 'Freeform Wavefront Geometry',
-    subtitle: 'Point-by-Point Calculation',
-    description: 'Custom digital calculation for your exact eye anatomy to deliver razor-sharp peripheral focus.',
-    icon: 'Eye'
   },
   {
     title: 'Thermal & Impact Resilience',

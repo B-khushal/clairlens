@@ -48,12 +48,12 @@ export default function Features() {
             transition={{ delay: 0.2 }}
             className="text-fluid-body text-gray-700 font-light leading-relaxed"
           >
-            Six pillar technologies integrated into every optical lens to ensure unmatched visual clarity, ocular safety, effortless wiping, and extreme thermal durability.
+            Four pillar technologies integrated into every optical lens to ensure unmatched visual clarity, ocular safety, effortless wiping, and extreme thermal durability.
           </motion.p>
         </div>
 
-        {/* 6 Glass Feature Cards Grid (Responsive 3-col -> 2-col -> 1-col) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* 4 Glass Feature Cards Grid (Responsive 4-col -> 2-col -> 1-col) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {FEATURES_DATA.map((feature, index) => (
             <motion.div
               key={index}
