@@ -2,12 +2,6 @@ import { motion } from 'motion/react';
 import { Microscope, ShieldCheck, Award } from 'lucide-react';
 import { MANUFACTURING_LAB_ASSET } from '../data/assetsData';
 
-const stats = [
-  { label: 'Polish Accuracy', value: '< 0.01μ', description: 'Nanometer surface accuracy tolerance' },
-  { label: 'Coating Platforms', value: '3 Platforms', description: 'Silica, Aegean, Pacific' },
-  { label: 'Quality Checkpoints', value: '18 Points', description: 'Laser wavefront inspection per lens' },
-  { label: 'Optical Standards', value: 'ISO 8980', description: 'Global prescription certification' },
-];
 
 interface AboutProps {
   onNavigate?: (page: string) => void;
@@ -40,28 +34,12 @@ export default function About({ onNavigate }: AboutProps) {
               <span className="italic font-light text-gradient-wine">Uncompromising Quality</span>
             </h2>
 
-            <div className="space-y-4 sm:space-y-6 text-fluid-body text-gray-700 font-light leading-relaxed mb-8 sm:mb-10">
+            <div className="text-fluid-body text-gray-700 font-light leading-relaxed mb-8 sm:mb-10">
               <p>
-                Clairlens represents the modern pinnacle of optical lens manufacturing. We blend decades of master optical craftsmanship with sub-micron digital freeform engineering to create glass surfaces that redefine visual acuity.
-              </p>
-              <p>
-                Every lens crafted in our cleanroom facilities undergoes wavefront laser distortion analysis. From raw optical polymer substrates to multi-layer anti-reflective coatings, we maintain tolerances that exceed international ISO guidelines.
+                Clairlens represents the modern pinnacle of optical lens manufacturing. We blend decades of master optical craftsmanship with digital freeform engineering to create glass surfaces that redefine visual acuity.
               </p>
             </div>
 
-            {/* Stat Cards Grid (Responsive 2x2 grid) */}
-            <div className="grid grid-cols-2 gap-3.5 sm:gap-5 pt-6 border-t border-wine-800/15 mb-6">
-              {stats.map((stat, i) => (
-                <div 
-                  key={i} 
-                  className="p-4 sm:p-5 rounded-2xl bg-white/70 backdrop-blur-md border border-wine-800/10 shadow-sm hover:border-wine-800/30 transition-all duration-300"
-                >
-                  <div className="text-xl sm:text-2xl lg:text-3xl font-serif font-semibold text-wine-950 mb-1">{stat.value}</div>
-                  <div className="text-[10px] sm:text-xs font-bold text-wine-900 uppercase tracking-wider mb-1 font-mono">{stat.label}</div>
-                  <div className="text-[10px] sm:text-xs text-gray-500 font-light leading-snug">{stat.description}</div>
-                </div>
-              ))}
-            </div>
 
             <button
               onClick={() => onNavigate ? onNavigate('about') : null}
